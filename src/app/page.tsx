@@ -21,6 +21,28 @@ export default function Home() {
 
       {/* Main Content Area */}
       <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 space-y-6">
+        {/* Pre-Electoral Context Banner: 14 October 2026 */}
+        <div className="bg-white border-l-4 border-amber-500 rounded-r-xl border-y border-r border-zinc-200 p-4 sm:p-5 shadow-2xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs uppercase font-extrabold tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded">
+                  📅 14 de Octubre de 2026
+                </span>
+                <span className="text-xs font-semibold text-zinc-500">
+                  XV Legislatura • Recta Final Pre-electoral
+                </span>
+              </div>
+              <h1 className="text-base sm:text-lg font-bold text-zinc-900 mt-1">
+                La Realidad de los Partidos ante el Nuevo Ciclo Electoral
+              </h1>
+              <p className="text-xs text-zinc-600 mt-0.5 max-w-4xl leading-relaxed">
+                A menos de un año de las elecciones municipales y autonómicas de mayo de 2027 y de las elecciones generales, esta plataforma ofrece un balance objetivo y contrastado sobre <strong>PSOE</strong>, <strong>PP</strong> y <strong>Vox</strong>: qué votaron en el Congreso frente a lo que prometieron, qué territorios gobiernan, sus causas judiciales oficiales y la gestión real de crisis y catástrofes.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Quick Institutional Summary Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="bg-white border border-zinc-200 p-4 rounded-xl shadow-2xs">
@@ -54,11 +76,11 @@ export default function Home() {
               Leyes Decisivas Analizadas
             </span>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl font-black text-zinc-900">8 Leyes</span>
+              <span className="text-2xl font-black text-zinc-900">10 Leyes</span>
               <span className="text-xs text-zinc-500">con votos y argumentos</span>
             </div>
             <div className="text-[11px] text-zinc-600 mt-1">
-              Vivienda, Pensiones, Laboral, Fiscalidad
+              Vivienda, Financiación, Amnistía, SMI
             </div>
           </div>
 
@@ -67,7 +89,7 @@ export default function Home() {
               Rendición Judicial y Alertas
             </span>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl font-black text-rose-700">10 Causas</span>
+              <span className="text-2xl font-black text-rose-700">11 Causas</span>
               <span className="text-xs text-zinc-500">y 4 emergencias CCAA</span>
             </div>
             <div className="text-[11px] text-zinc-600 mt-1">

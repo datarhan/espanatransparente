@@ -33,6 +33,10 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 <span className="text-[10px] uppercase font-semibold bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-full border border-zinc-200">
                   Datos Oficiales
                 </span>
+                <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded-full">
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                  14 Octubre 2026 • Pre-electoral XV Leg.
+                </span>
               </div>
               <p className="text-xs text-zinc-500 hidden sm:block">
                 Observatorio electoral independiente: Congreso, BOE, CENDOJ y Tribunal de Cuentas

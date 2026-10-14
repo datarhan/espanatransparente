@@ -238,6 +238,46 @@ export const BILLS: Bill[] = [
       VOX: 'EN_CONTRA'
     },
     result: 'APROBADA'
+  },
+  {
+    id: 'financiacion-singular-cataluna',
+    title: 'Propuesta de Financiación Singular y Concierto Económico para Cataluña',
+    shortTitle: 'Financiación Singular / Concierto Catalán',
+    date: '2025-03-12',
+    legislature: 'XV Legislatura',
+    category: 'FISCALIDAD',
+    officialBoeUrl: 'https://www.boe.es',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Gobierno de España (compromiso PSC-ERC)',
+    objectiveSummary: 'Habilita la cesión del 100% de la recaudación tributaria (IRPF, IVA, Sociedades) a la Agencia Tributaria de Cataluña, estipulando una aportación de solidaridad interterritorial y un pago por los servicios que el Estado presta en la comunidad.',
+    proArguments: 'Defendida como un paso legítimo de autogobierno económico conforme al Estatuto catalán para resolver el déficit fiscal histórico de Cataluña y blindar la estabilidad parlamentaria.',
+    conArguments: 'PP y Vox denunciaron la quiebra del principio de solidaridad y de igualdad de todos los españoles ante la hacienda pública, mermando los fondos para sanidad y educación en las regiones con menor renta y rompiendo la caja común estatal.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'reforma-extranjeria-menores',
+    title: 'Proposición de Ley de modificación de la Ley de Extranjería (Art. 35)',
+    shortTitle: 'Reparto Obligatorio de Menores Migrantes entre CCAA',
+    date: '2024-07-23',
+    legislature: 'XV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialBoeUrl: 'https://www.boe.es',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Gobierno de España y Gobierno de Canarias',
+    objectiveSummary: 'Pretendía fijar por ley un reparto obligatorio y vinculante de menores migrantes no acompañados hacia todas las CCAA cuando la capacidad de acogida de una región frontera (como Canarias) superase el 150%.',
+    proArguments: 'Respuesta solidaria e ineludible ante el colapso asistencial de las islas Canarias, garantizando la tutela y derechos humanos fundamentales de los menores.',
+    conArguments: 'Rechazada por los votos conjuntos de PP, Vox y Junts. El PP denunció la falta de financiación estatal asociada y de un plan migratorio global; Vox exigió el cierre de centros y repatriación inmediata, rompiendo los 5 gobiernos autonómicos que compartía con el PP por admitir el reparto voluntario.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'RECHAZADA'
   }
 ];
 
@@ -307,10 +347,24 @@ export const CRIMINAL_CASES: CriminalCase[] = [
     crimesCharged: ['Organización criminal', 'Cohecho', 'Tráfico de influencias', 'Blanqueo de capitales'],
     defraudedAmountEur: '53.000.000 € en contratos públicos de suministro sanitario de emergencia durante la pandemia',
     convictedCount: 0,
-    partyInstitutionalLiability: 'Afecta a Koldo García (exasesor de José Luis Ábalos) y al exministro y exsecretario de organización del PSOE José Luis Ábalos (investigado por el Tribunal Supremo). Rigurosa presunción de inocencia.',
+    partyInstitutionalLiability: 'Investigación judicial tras los informes de la UCO de la Guardia Civil que implican a Koldo García y elevan la causa contra el exministro José Luis Ábalos al Tribunal Supremo. Estricta presunción de inocencia.',
     summary: 'Investigación judicial sobre el presunto cobro de comisiones ilegales millonarias en contratos de mascarillas adjudicados por Puertos del Estado, ADIF y gobiernos autonómicos a la empresa Soluciones de Gestión.',
     officialResolutionUrl: 'https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Audiencia-Nacional/',
-    sentenceYearOrPeriod: 'En instrucción preliminar (2024-2026)'
+    sentenceYearOrPeriod: 'En instrucción en Tribunal Supremo y Audiencia Nacional (Actualizado Oct 2026)'
+  },
+  {
+    id: 'caso-begona-gomez',
+    title: 'Causa Begoña Gómez / Cátedra Extraordinaria UCM',
+    party: 'PSOE',
+    court: 'Juzgado de Instrucción 41 de Madrid / Audiencia Provincial de Madrid',
+    judicialStatus: 'EN_INSTRUCCION',
+    crimesCharged: ['Tráfico de influencias', 'Corrupción en los negocios', 'Apropiación indebida de software', 'Intrusismo profesional'],
+    defraudedAmountEur: 'Investigación sobre intermediaciones en contratos y patrocinios universitarios privados',
+    convictedCount: 0,
+    partyInstitutionalLiability: 'Querellas de asociaciones y partidos personados como acusación popular. El PSOE defiende que es una investigación prospectiva sin contenido penal. Rigurosa presunción de inocencia.',
+    summary: 'Diligencias judiciales dirigidas por el magistrado Juan Carlos Peinado para investigar si la esposa del presidente del Gobierno utilizó su posición para recomendar cartas de apoyo a empresas (e.g. UTE Barrabés) que licitaron a contratos públicos de Red.es.',
+    officialResolutionUrl: 'https://www.poderjudicial.es',
+    sentenceYearOrPeriod: 'En fase de instrucción (Actualizado Oct 2026)'
   },
   {
     id: 'caso-filesa',
