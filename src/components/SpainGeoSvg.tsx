@@ -192,28 +192,28 @@ export const SpainGeoSvg: React.FC<SpainGeoSvgProps> = ({
   ];
 
   return (
-    <div className="bg-white border border-zinc-200 rounded-xl p-4 sm:p-6 shadow-xs relative">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-zinc-100 gap-2 mb-4">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-6 shadow-xs relative">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-2 mb-4">
         <div>
-          <h3 className="text-base font-bold text-zinc-900">Mapa Geográfico de España (Comunidades Autónomas)</h3>
-          <p className="text-xs text-zinc-500">
+          <h3 className="text-base font-bold text-slate-900">Mapa Esquemático Vectorial de España (CCAA)</h3>
+          <p className="text-xs text-slate-500">
             Haz clic en cualquier territorio para consultar su composición parlamentaria y presidente.
           </p>
         </div>
 
         {/* Legend */}
-        <div className="flex items-center gap-3 text-xs font-semibold">
+        <div className="flex items-center gap-3 text-xs font-bold">
           <div className="flex items-center gap-1.5">
             <span className="h-3 w-3 rounded-full bg-blue-600"></span>
-            <span className="text-zinc-700">PP (11)</span>
+            <span className="text-slate-700">PP (11)</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="h-3 w-3 rounded-full bg-red-600"></span>
-            <span className="text-zinc-700">PSOE (3)</span>
+            <span className="text-slate-700">PSOE (3)</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="h-3 w-3 rounded-full bg-purple-600"></span>
-            <span className="text-zinc-700">Otros / Coalición (3)</span>
+            <span className="text-slate-700">Otros / Coalición (3)</span>
           </div>
         </div>
       </div>

@@ -3,7 +3,21 @@
 import React, { useState } from 'react';
 import { MACRO_INDICATORS } from '@/data/politicalData';
 import { MacroIndicator } from '@/types/politics';
-import { TrendingUp, TrendingDown, Minus, BarChart3, ExternalLink, Building2, Users, DollarSign, Home, CheckCircle2, AlertCircle } from 'lucide-react';
+import { 
+  TrendingUp, 
+  TrendingDown, 
+  Minus, 
+  BarChart3, 
+  ExternalLink, 
+  Building2, 
+  Users, 
+  DollarSign, 
+  Home, 
+  CheckCircle2, 
+  AlertCircle,
+  Layers,
+  ArrowUpRight
+} from 'lucide-react';
 
 export const MacroIndicators: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
@@ -17,21 +31,21 @@ export const MacroIndicators: React.FC = () => {
     switch (trend) {
       case 'MEJORA':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-2xs">
             <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
             Evolución Favorable
           </span>
         );
       case 'ESTABLE':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 shadow-2xs">
             <Minus className="w-3.5 h-3.5 text-amber-600" />
             Estable / Moderada
           </span>
         );
       case 'DETERIORO':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-200">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-800 border border-rose-200 shadow-2xs">
             <TrendingDown className="w-3.5 h-3.5 text-rose-600" />
             Tensión / Deterioro
           </span>
@@ -55,35 +69,46 @@ export const MacroIndicators: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header Intro */}
-      <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-5">
-        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-          <BarChart3 className="w-4 h-4 text-zinc-800" />
-          <span>Contexto Socioeconómico Oficial (INE, Banco de España, Eurostat)</span>
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-xs">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-slate-500 mb-1">
+              <BarChart3 className="w-4 h-4 text-slate-800" />
+              <span>Contexto Socioeconómico Oficial • INE, BdE y Eurostat</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Observatorio Macroeconómico y Termómetro Social
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed">
+              Las contiendas electorales se deciden en gran medida sobre la situación material de la ciudadanía. Este módulo recoge las magnitudes macroeconómicas oficiales certificadas a finales de la XV Legislatura (2026) y contrasta objetivamente la interpretación del <strong>Gobierno (PSOE)</strong> frente a las réplicas de la oposición (<strong>PP</strong> y <strong>Vox</strong>).
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
+              <Layers className="w-3.5 h-3.5 text-slate-500" />
+              <span>{MACRO_INDICATORS.length} Indicadores Oficiales</span>
+            </span>
+          </div>
         </div>
-        <h2 className="text-xl font-bold text-zinc-900 tracking-tight mt-1">
-          Observatorio Macroeconómico y Termómetro Social
-        </h2>
-        <p className="text-sm text-zinc-600 mt-1">
-          Las disputas electorales giran habitualmente en torno a la economía. Este módulo presenta los indicadores macroeconómicos clave del Estado español con datos oficiales certificados y contrasta de manera neutral la lectura y relato que hacen de ellos el <strong>Gobierno (PSOE)</strong> y la oposición (<strong>PP</strong> y <strong>Vox</strong>).
-        </p>
 
         {/* Category Filters */}
-        <div className="mt-4 pt-3 border-t border-zinc-200 flex flex-wrap items-center gap-1.5 text-xs">
-          <span className="text-zinc-500 font-semibold mr-1">Categoría:</span>
+        <div className="mt-5 flex flex-wrap items-center gap-1.5 text-xs">
+          <span className="text-slate-500 font-semibold mr-1">Filtrar por ámbito:</span>
           {[
-            { id: 'ALL', label: `Todos los Indicadores (${MACRO_INDICATORS.length})` },
+            { id: 'ALL', label: `Todos (${MACRO_INDICATORS.length})` },
             { id: 'EMPLEO', label: 'Empleo y Seguridad Social' },
             { id: 'PRECIOS', label: 'Precios e Inflación' },
-            { id: 'ECONOMIA', label: 'Deuda y PIB' },
+            { id: 'ECONOMIA', label: 'Deuda Pública y PIB' },
             { id: 'BIENESTAR', label: 'Salarios y Vivienda' },
           ].map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-3 py-1 rounded-lg font-bold cursor-pointer transition-colors ${
+              className={`px-3.5 py-1.5 rounded-xl font-bold cursor-pointer transition-all ${
                 selectedCategory === cat.id
-                  ? 'bg-zinc-900 text-white shadow-xs'
-                  : 'bg-white text-zinc-700 border border-zinc-200 hover:bg-zinc-100'
+                  ? 'bg-slate-900 text-white shadow-xs'
+                  : 'bg-slate-100/80 text-slate-600 hover:bg-slate-200/70 border border-slate-200/60'
               }`}
             >
               {cat.label}
@@ -93,76 +118,76 @@ export const MacroIndicators: React.FC = () => {
       </div>
 
       {/* Indicators Cards Grid */}
-      <div className="space-y-6">
+      <div className="space-y-5">
         {filteredIndicators.map((item) => (
           <div
             key={item.id}
-            className="bg-white border border-zinc-200 rounded-xl p-6 shadow-xs hover:border-zinc-300 transition-colors space-y-5"
+            className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-xs hover:border-slate-300 hover:shadow-md transition-all space-y-5"
           >
             {/* Top row: Indicator title, value, and trend */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-100">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="p-1 rounded bg-zinc-100 border border-zinc-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="p-1 rounded-md bg-slate-100 border border-slate-200">
                     {getCategoryIcon(item.category)}
                   </span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     {item.category}
                   </span>
-                  <span>•</span>
-                  <span className="text-xs text-zinc-500 font-medium">Fuente: {item.officialSource}</span>
+                  <span className="text-slate-300">•</span>
+                  <span className="text-xs text-slate-500 font-medium">Fuente: {item.officialSource}</span>
                 </div>
-                <h3 className="text-lg font-bold text-zinc-900">{item.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">{item.title}</h3>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 shrink-0">
                 <div className="text-right">
-                  <div className="text-2xl font-black text-zinc-900 tracking-tight">{item.currentValue2026}</div>
-                  <div className="text-[11px] text-zinc-500 font-medium">{item.comparisonBaseline}</div>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight font-mono">{item.currentValue2026}</div>
+                  <div className="text-[11px] text-slate-500 font-medium">{item.comparisonBaseline}</div>
                 </div>
                 {getTrendBadge(item.trend)}
               </div>
             </div>
 
             {/* Objective summary */}
-            <div className="p-3.5 bg-zinc-50 rounded-xl border border-zinc-100 text-xs text-zinc-700 leading-relaxed">
-              <span className="font-semibold text-zinc-900">Contexto objetivo contrastado: </span>
+            <div className="p-4 bg-slate-50/80 rounded-xl border border-slate-200/80 text-xs text-slate-700 leading-relaxed font-normal">
+              <span className="font-bold text-slate-900">Contexto objetivo certificado: </span>
               {item.contextSummary}
             </div>
 
             {/* 3 Parties Political Perspectives Matrix */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs">
               {/* PSOE */}
-              <div className="p-3.5 rounded-xl bg-red-50/50 border border-red-200 space-y-1.5">
+              <div className="p-4 rounded-2xl bg-red-50/40 border border-red-200/80 space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-red-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="font-black text-red-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
                     <span className="h-2 w-2 rounded-full bg-red-600"></span>
                     PSOE (Gobierno)
                   </span>
                 </div>
-                <p className="text-zinc-700 leading-relaxed">{item.psoePerspective}</p>
+                <p className="text-slate-700 leading-relaxed font-normal">{item.psoePerspective}</p>
               </div>
 
               {/* PP */}
-              <div className="p-3.5 rounded-xl bg-blue-50/50 border border-blue-200 space-y-1.5">
+              <div className="p-4 rounded-2xl bg-blue-50/40 border border-blue-200/80 space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-blue-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="font-black text-blue-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
                     <span className="h-2 w-2 rounded-full bg-blue-600"></span>
                     PP (Oposición)
                   </span>
                 </div>
-                <p className="text-zinc-700 leading-relaxed">{item.ppPerspective}</p>
+                <p className="text-slate-700 leading-relaxed font-normal">{item.ppPerspective}</p>
               </div>
 
               {/* VOX */}
-              <div className="p-3.5 rounded-xl bg-emerald-50/50 border border-emerald-200 space-y-1.5">
+              <div className="p-4 rounded-2xl bg-emerald-50/40 border border-emerald-200/80 space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-emerald-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="font-black text-emerald-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
                     <span className="h-2 w-2 rounded-full bg-emerald-600"></span>
                     VOX (Oposición)
                   </span>
                 </div>
-                <p className="text-zinc-700 leading-relaxed">{item.voxPerspective}</p>
+                <p className="text-slate-700 leading-relaxed font-normal">{item.voxPerspective}</p>
               </div>
             </div>
 
@@ -172,7 +197,7 @@ export const MacroIndicators: React.FC = () => {
                 href={item.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-blue-600 hover:text-blue-800 hover:underline font-semibold"
+                className="inline-flex items-center gap-1 text-xs font-bold text-blue-700 hover:text-blue-900 hover:underline"
               >
                 <span>Verificar datos en portal oficial ({item.officialSource.split('(')[0].trim()})</span>
                 <ExternalLink className="w-3 h-3" />

@@ -269,54 +269,54 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
   };
 
   return (
-    <div className="bg-white border border-zinc-200 rounded-xl overflow-hidden shadow-xs relative">
+    <div className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs relative">
       {/* Top Map Toolbar */}
-      <div className="p-4 border-b border-zinc-200 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-zinc-50/80">
+      <div className="p-4 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-50/80">
         <div>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-zinc-800" />
-            <h3 className="text-sm font-bold text-zinc-900">
-              Mapa Base CARTO — Límites Autonómicos Oficiales de España
+          <div className="flex items-center gap-2 flex-wrap">
+            <MapPin className="w-4 h-4 text-slate-800" />
+            <h3 className="text-sm font-bold text-slate-900">
+              Mapa Base Cartográfico Oficial — Comunidades Autónomas de España
             </h3>
             {cartoApiKey ? (
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full border border-emerald-200">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full border border-emerald-200">
                 <ShieldCheck className="w-3 h-3 text-emerald-600" /> CARTO Key Activa
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full border border-amber-200">
-                CARTO Público / Fallback Activo
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full border border-slate-200">
+                Límites IGN / CARTO
               </span>
             )}
           </div>
-          <p className="text-xs text-zinc-500 mt-0.5">
-            Fronteras administrativas de las 17 Comunidades Autónomas, Ceuta y Melilla con silueta real.
+          <p className="text-xs text-slate-500 mt-0.5">
+            Fronteras administrativas de las 17 Comunidades Autónomas, Ceuta y Melilla con silueta real y reparto parlamentario.
           </p>
         </div>
 
         {/* Controls: CARTO style switcher & Key Config */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Basemap Switcher */}
-          <div className="inline-flex rounded-lg border border-zinc-200 bg-white p-0.5 text-xs font-semibold">
+          <div className="inline-flex rounded-xl border border-slate-200 bg-white p-1 text-xs font-bold shadow-2xs">
             <button
               onClick={() => setBasemapStyle('carto_light')}
-              className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                basemapStyle === 'carto_light' ? 'bg-zinc-900 text-white' : 'text-zinc-600 hover:text-zinc-900'
+              className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
+                basemapStyle === 'carto_light' ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               CARTO Positron
             </button>
             <button
               onClick={() => setBasemapStyle('carto_voyager')}
-              className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                basemapStyle === 'carto_voyager' ? 'bg-zinc-900 text-white' : 'text-zinc-600 hover:text-zinc-900'
+              className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
+                basemapStyle === 'carto_voyager' ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               CARTO Voyager
             </button>
             <button
               onClick={() => setBasemapStyle('esri')}
-              className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                basemapStyle === 'esri' ? 'bg-zinc-900 text-white' : 'text-zinc-600 hover:text-zinc-900'
+              className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
+                basemapStyle === 'esri' ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
               }`}
               title="Mapa base gris claro sin marca de agua y de alta resolución"
             >
@@ -324,8 +324,8 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
             </button>
             <button
               onClick={() => setBasemapStyle('osm')}
-              className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                basemapStyle === 'osm' ? 'bg-zinc-900 text-white' : 'text-zinc-600 hover:text-zinc-900'
+              className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
+                basemapStyle === 'osm' ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               OSM
@@ -335,10 +335,10 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
           {/* CARTO Key button */}
           <button
             onClick={() => setShowKeyInput(!showKeyInput)}
-            className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-white border border-zinc-300 hover:bg-zinc-100 text-zinc-700 rounded-lg shadow-2xs transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl shadow-2xs transition-colors cursor-pointer"
           >
-            <Key className="w-3.5 h-3.5 text-zinc-500" />
-            <span>{cartoApiKey ? 'Editar Key' : 'Ingresar API Key'}</span>
+            <Key className="w-3.5 h-3.5 text-slate-500" />
+            <span>{cartoApiKey ? 'Editar Key' : 'API Key'}</span>
           </button>
         </div>
       </div>
@@ -356,19 +356,19 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
               placeholder="Pega aquí tu API key de CARTO..."
               value={tempKey}
               onChange={(e) => setTempKey(e.target.value)}
-              className="mt-1.5 w-full max-w-md px-3 py-1.5 bg-white border border-amber-300 rounded-md text-xs font-mono focus:outline-hidden focus:ring-2 focus:ring-amber-500"
+              className="mt-1.5 w-full max-w-md px-3 py-1.5 bg-white border border-amber-300 rounded-xl text-xs font-mono focus:outline-hidden focus:ring-2 focus:ring-amber-500"
             />
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={handleSaveKey}
-              className="px-4 py-1.5 bg-zinc-900 text-white font-bold rounded-md hover:bg-zinc-800 transition-colors flex items-center gap-1"
+              className="px-4 py-1.5 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-1 cursor-pointer"
             >
               <Check className="w-3.5 h-3.5" /> Guardar y Aplicar
             </button>
             <button
               onClick={() => setShowKeyInput(false)}
-              className="px-3 py-1.5 bg-white text-zinc-600 border border-zinc-300 rounded-md hover:bg-zinc-50"
+              className="px-3 py-1.5 bg-white text-slate-600 border border-slate-300 rounded-xl hover:bg-slate-50 cursor-pointer"
             >
               Cerrar
             </button>
@@ -380,9 +380,9 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
       <div className="relative w-full h-[540px] bg-slate-100">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white/80 z-30">
-            <div className="flex items-center gap-2 text-xs font-semibold text-zinc-600">
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
               <span className="h-2 w-2 rounded-full bg-blue-600 animate-ping"></span>
-              Cargando mapa base CARTO y límites de España...
+              Cargando mapa base y límites de España...
             </div>
           </div>
         )}
@@ -390,37 +390,37 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
         <div ref={mapContainerRef} className="w-full h-full z-10" />
 
         {/* Custom Map Controls Overlay */}
-        <div className="absolute bottom-5 right-5 z-20 flex flex-col gap-1.5 shadow-md rounded-lg overflow-hidden border border-zinc-200 bg-white">
+        <div className="absolute bottom-5 right-5 z-20 flex flex-col gap-1.5 shadow-md rounded-xl overflow-hidden border border-slate-200 bg-white p-1">
           <button
             onClick={handleZoomIn}
             title="Acercar mapa"
-            className="p-2 hover:bg-zinc-100 text-zinc-700 transition-colors border-b border-zinc-100 cursor-pointer"
+            className="p-2 hover:bg-slate-100 text-slate-700 transition-colors rounded-lg cursor-pointer"
           >
             <ZoomIn className="w-4 h-4" />
           </button>
           <button
             onClick={handleZoomOut}
             title="Alejar mapa"
-            className="p-2 hover:bg-zinc-100 text-zinc-700 transition-colors border-b border-zinc-100 cursor-pointer"
+            className="p-2 hover:bg-slate-100 text-slate-700 transition-colors rounded-lg cursor-pointer"
           >
             <ZoomOut className="w-4 h-4" />
           </button>
           <button
             onClick={handleResetZoom}
             title="Restablecer vista completa de España"
-            className="p-2 hover:bg-zinc-100 text-zinc-700 transition-colors flex items-center justify-center cursor-pointer"
+            className="p-2 hover:bg-slate-100 text-slate-700 transition-colors flex items-center justify-center rounded-lg cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
           </button>
         </div>
 
         {/* Legend */}
-        <div className="absolute top-4 left-4 z-20 bg-white/95 backdrop-blur-xs px-3 py-2 rounded-lg border border-zinc-200 shadow-sm text-xs space-y-1">
-          <div className="font-bold text-[11px] text-zinc-500 uppercase tracking-wider">Presidencias CCAA:</div>
-          <div className="flex items-center gap-3 font-semibold text-[11px]">
-            <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-blue-600"></span> PP (11)</span>
-            <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-red-600"></span> PSOE (3)</span>
-            <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-purple-600"></span> Otros (3)</span>
+        <div className="absolute top-4 left-4 z-20 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-slate-200/90 shadow-sm text-xs space-y-1.5">
+          <div className="font-extrabold text-[11px] text-slate-500 uppercase tracking-wider">Presidencias Autonómicas:</div>
+          <div className="flex items-center gap-3 font-bold text-[11px]">
+            <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-blue-600"></span> PP (11)</span>
+            <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-red-600"></span> PSOE (3)</span>
+            <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-purple-600"></span> Otros (3)</span>
           </div>
         </div>
       </div>

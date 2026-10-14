@@ -46,15 +46,15 @@ export const SpainVisualMap: React.FC<SpainVisualMapProps> = ({
   };
 
   return (
-    <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-4 sm:p-5">
-      <div className="flex items-center justify-between pb-3 border-b border-zinc-200 mb-4">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-6 shadow-xs">
+      <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
         <div className="flex items-center gap-2">
-          <MapPin className="w-4 h-4 text-zinc-700" />
-          <span className="text-xs font-bold uppercase tracking-wider text-zinc-700">
-            Mapa Cartográfico de Gobiernos Autonómicos
+          <MapPin className="w-4 h-4 text-slate-800" />
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
+            Rejilla Cartográfica Proporcional de CCAA
           </span>
         </div>
-        <div className="flex items-center gap-2 text-[10px] font-semibold">
+        <div className="flex items-center gap-2.5 text-[11px] font-bold">
           <span className="inline-flex items-center gap-1">
             <span className="h-2.5 w-2.5 rounded-full bg-blue-600"></span> PP (11)
           </span>
@@ -92,9 +92,9 @@ export const SpainVisualMap: React.FC<SpainVisualMapProps> = ({
             <button
               key={region.id}
               onClick={() => onSelectRegion(region)}
-              className={`${colClass} ${rowClass} h-14 sm:h-16 p-1.5 rounded-xl transition-all cursor-pointer flex flex-col items-center justify-center text-center ${
+              className={`${colClass} ${rowClass} h-14 sm:h-16 p-1.5 rounded-xl transition-all cursor-pointer flex flex-col items-center justify-center text-center shadow-2xs ${
                 isSelected
-                  ? 'bg-zinc-900 text-white ring-2 ring-zinc-900 scale-105 shadow-md'
+                  ? 'bg-slate-900 text-white ring-2 ring-slate-900 scale-105 shadow-md z-10'
                   : getPartyBg(region.governingParty, false)
               }`}
             >
@@ -109,8 +109,8 @@ export const SpainVisualMap: React.FC<SpainVisualMapProps> = ({
         })}
       </div>
 
-      <p className="text-[11px] text-zinc-500 text-center mt-3">
-        Haz clic en cualquier comunidad para ver su presidente, fórmula de gobierno y reparto de escaños.
+      <p className="text-xs text-slate-500 text-center mt-3 font-medium">
+        Haz clic en cualquier comunidad para consultar su composición parlamentaria y presidente.
       </p>
     </div>
   );

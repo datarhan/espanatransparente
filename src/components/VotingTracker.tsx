@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { BILLS } from '@/data/politicalData';
 import { BillCategory, VoteOutcome } from '@/types/politics';
-import { Vote, ExternalLink, Filter, Check, X, Minus, BookOpen } from 'lucide-react';
+import { Vote, ExternalLink, Filter, Check, X, Minus, BookOpen, Search, RotateCcw } from 'lucide-react';
 
 export const VotingTracker: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
@@ -55,24 +55,24 @@ export const VotingTracker: React.FC = () => {
     ).length
   };
 
-  const renderVoteBadge = (partyName: string, outcome: VoteOutcome) => {
+  const renderVoteBadge = (outcome: VoteOutcome) => {
     if (outcome === 'A_FAVOR') {
       return (
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-          <Check className="w-3 h-3" /> A FAVOR
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <Check className="w-3 h-3 text-emerald-600" /> A FAVOR
         </span>
       );
     }
     if (outcome === 'EN_CONTRA') {
       return (
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-rose-50 text-rose-700 border border-rose-200">
-          <X className="w-3 h-3" /> EN CONTRA
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-50 text-rose-800 border border-rose-200">
+          <X className="w-3 h-3 text-rose-600" /> EN CONTRA
         </span>
       );
     }
     return (
-      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">
-        <Minus className="w-3 h-3" /> ABSTENCIÓN
+      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
+        <Minus className="w-3 h-3 text-amber-600" /> ABSTENCIÓN
       </span>
     );
   };
@@ -80,73 +80,97 @@ export const VotingTracker: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Intro Header */}
-      <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-5">
-        <h2 className="text-xl font-bold text-zinc-900 tracking-tight">Monitor Objetivo de Votaciones Parlamentarias</h2>
-        <p className="text-sm text-zinc-600 mt-1">
-          Registro nominal de cómo votó cada partido en el Congreso de los Diputados en <strong>{stats.total} leyes y mociones decisivas</strong>, acompañado de los argumentos oficiales tanto de los impulsores como de la oposición registrada en el <em>Diario de Sesiones</em>.
-        </p>
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-5">
+        <div>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <Vote className="w-4 h-4 text-slate-900" />
+            <span>Votaciones Nominales en el Congreso de los Diputados</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight mt-1">
+            Monitor de Votaciones Parlamentarias y Acuerdos
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed">
+            Registro nominal de cómo votó cada partido en el Congreso en <strong>{stats.total} leyes y mociones decisivas</strong> de las legislaturas XIV y XV, con los argumentos oficiales de los proponentes y las objeciones de la oposición recogidas en el <em>Diario de Sesiones</em>.
+          </p>
+        </div>
 
         {/* Quick Political Consensus Badges */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4 pt-3 border-t border-zinc-200 text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
           <button
             onClick={() => setFilterType('ALL')}
-            className={`p-2.5 rounded-lg border text-left cursor-pointer transition-colors ${
-              filterType === 'ALL' ? 'bg-zinc-900 text-white border-zinc-900' : 'bg-white text-zinc-700 border-zinc-200 hover:bg-zinc-100'
+            className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-150 ${
+              filterType === 'ALL'
+                ? 'bg-slate-900 text-white border-slate-900 shadow-sm ring-1 ring-slate-900/10'
+                : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-white'
             }`}
           >
-            <span className="font-semibold block uppercase text-[10px] opacity-80">Total Votaciones</span>
-            <span className="text-base font-black">{stats.total} Leyes</span>
+            <span className="font-bold block uppercase text-[10px] opacity-75">Total Leyes</span>
+            <span className="text-xl font-black mt-0.5 block tracking-tight">{stats.total} Leyes</span>
+            <span className="text-[11px] opacity-80">{stats.aprobadas} aprobadas • {stats.rechazadas} rechazadas</span>
           </button>
+
           <button
             onClick={() => setFilterType('CONSENSO')}
-            className={`p-2.5 rounded-lg border text-left cursor-pointer transition-colors ${
-              filterType === 'CONSENSO' ? 'bg-emerald-800 text-white border-emerald-800' : 'bg-white text-emerald-800 border-emerald-200 hover:bg-emerald-50'
+            className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-150 ${
+              filterType === 'CONSENSO'
+                ? 'bg-emerald-800 text-white border-emerald-900 shadow-sm ring-2 ring-emerald-500/20'
+                : 'bg-emerald-50/50 text-emerald-900 border-emerald-200/80 hover:bg-emerald-50 hover:border-emerald-300'
             }`}
           >
-            <span className="font-semibold block uppercase text-[10px] opacity-80">Pactos de Estado</span>
-            <span className="text-base font-black">{stats.consenso} Leyes (PP + PSOE)</span>
+            <span className="font-bold block uppercase text-[10px]">Pactos de Estado</span>
+            <span className="text-xl font-black mt-0.5 block tracking-tight">{stats.consenso} Leyes</span>
+            <span className="text-[11px] opacity-80">PP y PSOE votaron Sí</span>
           </button>
+
           <button
             onClick={() => setFilterType('POLARIZADA')}
-            className={`p-2.5 rounded-lg border text-left cursor-pointer transition-colors ${
-              filterType === 'POLARIZADA' ? 'bg-indigo-800 text-white border-indigo-800' : 'bg-white text-indigo-800 border-indigo-200 hover:bg-indigo-50'
+            className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-150 ${
+              filterType === 'POLARIZADA'
+                ? 'bg-indigo-800 text-white border-indigo-900 shadow-sm ring-2 ring-indigo-500/20'
+                : 'bg-indigo-50/50 text-indigo-900 border-indigo-200/80 hover:bg-indigo-50 hover:border-indigo-300'
             }`}
           >
-            <span className="font-semibold block uppercase text-[10px] opacity-80">Choque de Bloques</span>
-            <span className="text-base font-black">{stats.polarizadas} Leyes (PP vs PSOE)</span>
+            <span className="font-bold block uppercase text-[10px]">Choque Frontal</span>
+            <span className="text-xl font-black mt-0.5 block tracking-tight">{stats.polarizadas} Leyes</span>
+            <span className="text-[11px] opacity-80">Voto opuesto PSOE vs PP</span>
           </button>
+
           <button
             onClick={() => setFilterType('RECHAZADA')}
-            className={`p-2.5 rounded-lg border text-left cursor-pointer transition-colors ${
-              filterType === 'RECHAZADA' ? 'bg-rose-800 text-white border-rose-800' : 'bg-white text-rose-800 border-rose-200 hover:bg-rose-50'
+            className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-150 ${
+              filterType === 'RECHAZADA'
+                ? 'bg-rose-800 text-white border-rose-900 shadow-sm ring-2 ring-rose-500/20'
+                : 'bg-rose-50/50 text-rose-900 border-rose-200/80 hover:bg-rose-50 hover:border-rose-300'
             }`}
           >
-            <span className="font-semibold block uppercase text-[10px] opacity-80">Iniciativas Rechazadas</span>
-            <span className="text-base font-black">{stats.rechazadas} Leyes / Mociones</span>
+            <span className="font-bold block uppercase text-[10px]">Iniciativas Caídas</span>
+            <span className="text-xl font-black mt-0.5 block tracking-tight">{stats.rechazadas} Leyes</span>
+            <span className="text-[11px] opacity-80">Rechazadas en pleno</span>
           </button>
         </div>
 
-        {/* Search & Filters */}
-        <div className="mt-4 flex flex-col sm:flex-row gap-3 pt-3 border-t border-zinc-200">
+        {/* Search Bar */}
+        <div className="relative pt-2">
+          <Search className="w-4 h-4 absolute left-3.5 top-5 text-slate-400" />
           <input
             type="text"
             placeholder="Buscar por ley, tema o palabra clave (eutanasia, solo sí es sí, ucrania, amnistía, vivienda)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-1 px-3.5 py-2 text-sm bg-white border border-zinc-300 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-zinc-900"
+            className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm bg-slate-50/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:bg-white text-slate-900 placeholder-slate-400 transition-all"
           />
         </div>
 
         {/* Categories Bar */}
-        <div className="flex gap-1.5 overflow-x-auto pt-3 scrollbar-none">
+        <div className="flex gap-1.5 overflow-x-auto pt-2 scrollbar-none border-t border-slate-100">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap cursor-pointer transition-colors ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap cursor-pointer transition-all ${
                 selectedCategory === cat.id
-                  ? 'bg-zinc-900 text-white'
-                  : 'bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-100'
+                  ? 'bg-slate-900 text-white shadow-xs'
+                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
               }`}
             >
               {cat.label}
@@ -156,39 +180,50 @@ export const VotingTracker: React.FC = () => {
       </div>
 
       {/* Bill Cards */}
-      <div className="space-y-5">
+      <div className="space-y-4">
         {filteredBills.length === 0 ? (
-          <div className="text-center py-12 bg-white border border-zinc-200 rounded-xl text-zinc-500 text-sm">
-            No se encontraron leyes con los filtros seleccionados.
+          <div className="text-center py-12 bg-white border border-slate-200/90 rounded-2xl text-slate-500 text-sm shadow-xs space-y-3">
+            <Vote className="w-8 h-8 text-slate-300 mx-auto" />
+            <p className="font-semibold text-slate-700">No se encontraron leyes con los filtros seleccionados.</p>
+            <button
+              onClick={() => { setSelectedCategory('ALL'); setFilterType('ALL'); setSearchTerm(''); }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 cursor-pointer"
+            >
+              <RotateCcw className="w-3 h-3" /> Restablecer filtros
+            </button>
           </div>
         ) : (
           filteredBills.map((bill) => (
             <div
               key={bill.id}
-              className="bg-white border border-zinc-200 rounded-xl p-6 shadow-xs hover:border-zinc-300 transition-colors"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-slate-300 hover:shadow-md transition-all duration-200 space-y-4"
             >
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 pb-4 border-b border-zinc-100">
-                <div>
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 pb-4 border-b border-slate-100">
+                <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-zinc-100 text-zinc-700">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                       {bill.category}
                     </span>
-                    <span className="text-xs text-zinc-400">• {bill.legislature} • {bill.date}</span>
+                    <span className="text-xs text-slate-400">• {bill.legislature} • {bill.date}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-zinc-900 mt-1">{bill.shortTitle}</h3>
-                  <p className="text-xs text-zinc-500 mt-0.5">{bill.title}</p>
+                  <h3 className="text-lg font-bold text-slate-900">{bill.shortTitle}</h3>
+                  <p className="text-xs text-slate-500 max-w-3xl leading-snug">{bill.title}</p>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-800 border border-zinc-200">
-                    Resultado: {bill.result}
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className={`text-xs font-bold px-3 py-1 rounded-full border ${
+                    bill.result === 'APROBADA'
+                      ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                      : 'bg-rose-50 text-rose-800 border-rose-200'
+                  }`}>
+                    {bill.result}
                   </span>
                   {bill.officialBoeUrl && (
                     <a
                       href={bill.officialBoeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs text-blue-600 hover:underline px-2.5 py-1 bg-blue-50 rounded-lg border border-blue-100"
+                      className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 hover:underline px-3 py-1 bg-blue-50/60 rounded-xl border border-blue-100 font-bold"
                     >
                       <BookOpen className="w-3 h-3" />
                       <span>BOE</span>
@@ -199,48 +234,48 @@ export const VotingTracker: React.FC = () => {
               </div>
 
               {/* Summary */}
-              <div className="py-4 text-xs sm:text-sm text-zinc-700 leading-relaxed">
-                <span className="font-semibold text-zinc-900">Resumen Oficial de la Medida: </span>
+              <div className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <span className="font-bold text-slate-900">Resumen Oficial de la Medida: </span>
                 {bill.objectiveSummary}
               </div>
 
               {/* Dual Arguments Grid (Proponent vs Opponents) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-3 bg-zinc-50 p-4 rounded-xl border border-zinc-100 text-xs">
-                <div className="space-y-1">
-                  <div className="font-bold text-emerald-800 flex items-center gap-1.5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div className="p-4 rounded-xl bg-emerald-50/40 border border-emerald-100 space-y-1.5">
+                  <div className="font-bold text-emerald-900 flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
                     <span className="h-2 w-2 rounded-full bg-emerald-600"></span>
                     Argumentos Oficiales a Favor (Impulsores)
                   </div>
-                  <p className="text-zinc-600 leading-relaxed">{bill.proArguments}</p>
+                  <p className="text-slate-600 leading-relaxed text-xs">{bill.proArguments}</p>
                 </div>
 
-                <div className="space-y-1">
-                  <div className="font-bold text-rose-800 flex items-center gap-1.5">
+                <div className="p-4 rounded-xl bg-rose-50/40 border border-rose-100 space-y-1.5">
+                  <div className="font-bold text-rose-900 flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
                     <span className="h-2 w-2 rounded-full bg-rose-600"></span>
                     Objeciones Oficiales en Contra (Oposición)
                   </div>
-                  <p className="text-zinc-600 leading-relaxed">{bill.conArguments}</p>
+                  <p className="text-slate-600 leading-relaxed text-xs">{bill.conArguments}</p>
                 </div>
               </div>
 
               {/* Vote Table */}
-              <div className="mt-4 pt-4 border-t border-zinc-100 flex flex-wrap items-center justify-between gap-4">
-                <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+              <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                   Sentido del Voto Oficial por Partido:
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 sm:gap-6 flex-wrap">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-red-700">PSOE:</span>
-                    {renderVoteBadge('PSOE', bill.votes.PSOE)}
+                    <span className="text-xs font-black text-red-700">PSOE:</span>
+                    {renderVoteBadge(bill.votes.PSOE)}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-blue-700">PP:</span>
-                    {renderVoteBadge('PP', bill.votes.PP)}
+                    <span className="text-xs font-black text-blue-700">PP:</span>
+                    {renderVoteBadge(bill.votes.PP)}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-emerald-700">VOX:</span>
-                    {renderVoteBadge('VOX', bill.votes.VOX)}
+                    <span className="text-xs font-black text-emerald-700">VOX:</span>
+                    {renderVoteBadge(bill.votes.VOX)}
                   </div>
                 </div>
               </div>
