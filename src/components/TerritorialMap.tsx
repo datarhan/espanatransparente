@@ -3,13 +3,14 @@
 import React, { useState } from 'react';
 import { REGIONS } from '@/data/politicalData';
 import { Region } from '@/types/politics';
-import { MapPin, Users, Building2, CheckCircle2, Map as MapIcon, LayoutGrid } from 'lucide-react';
+import { MapPin, Users, Building2, CheckCircle2, Map as MapIcon, LayoutGrid, Globe } from 'lucide-react';
 import { SpainVisualMap } from '@/components/SpainVisualMap';
 import { SpainGeoSvg } from '@/components/SpainGeoSvg';
+import { RealSpainMap } from '@/components/RealSpainMap';
 
 export const TerritorialMap: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<Region>(REGIONS[0]);
-  const [mapViewMode, setMapViewMode] = useState<'GEO' | 'GRID'>('GEO');
+  const [mapViewMode, setMapViewMode] = useState<'REAL' | 'GEO' | 'GRID'>('REAL');
 
   // Aggregate stats
   const ppCount = REGIONS.filter(r => r.governingParty === 'PP').length;
@@ -45,11 +46,22 @@ export const TerritorialMap: React.FC = () => {
         </div>
 
         {/* View Mode Toggle */}
-        <div className="mt-4 pt-3 border-t border-zinc-200 flex items-center justify-between">
+        <div className="mt-4 pt-3 border-t border-zinc-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
             Formato de visualización del mapa:
           </span>
-          <div className="inline-flex rounded-lg border border-zinc-200 bg-white p-1">
+          <div className="inline-flex flex-wrap rounded-lg border border-zinc-200 bg-white p-1 gap-1">
+            <button
+              onClick={() => setMapViewMode('REAL')}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-colors cursor-pointer ${
+                mapViewMode === 'REAL'
+                  ? 'bg-zinc-900 text-white shadow-xs'
+                  : 'text-zinc-600 hover:text-zinc-900'
+              }`}
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>Mapa Geográfico Real (IGN / GeoJSON)</span>
+            </button>
             <button
               onClick={() => setMapViewMode('GEO')}
               className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-colors cursor-pointer ${
@@ -59,7 +71,7 @@ export const TerritorialMap: React.FC = () => {
               }`}
             >
               <MapIcon className="w-3.5 h-3.5" />
-              <span>Mapa Geográfico Vectorial</span>
+              <span>Esquema Vectorial</span>
             </button>
             <button
               onClick={() => setMapViewMode('GRID')}
@@ -70,14 +82,19 @@ export const TerritorialMap: React.FC = () => {
               }`}
             >
               <LayoutGrid className="w-3.5 h-3.5" />
-              <span>Vista Cuadrícula Cartográfica</span>
+              <span>Rejilla Cartográfica</span>
             </button>
           </div>
         </div>
       </div>
 
       {/* Render selected map format */}
-      {mapViewMode === 'GEO' ? (
+      {mapViewMode === 'REAL' ? (
+        <RealSpainMap
+          selectedRegion={selectedRegion}
+          onSelectRegion={setSelectedRegion}
+        />
+      ) : mapViewMode === 'GEO' ? (
         <SpainGeoSvg
           selectedRegion={selectedRegion}
           onSelectRegion={setSelectedRegion}
