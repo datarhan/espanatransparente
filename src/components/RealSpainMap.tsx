@@ -47,7 +47,7 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
   const [cartoApiKey, setCartoApiKey] = useState<string>('');
   const [showKeyInput, setShowKeyInput] = useState<boolean>(false);
   const [tempKey, setTempKey] = useState<string>('');
-  const [basemapStyle, setBasemapStyle] = useState<'carto_light' | 'carto_voyager' | 'osm'>('carto_light');
+  const [basemapStyle, setBasemapStyle] = useState<'carto_light' | 'carto_voyager' | 'esri' | 'osm'>('carto_light');
 
   // Load API key from env or localStorage
   useEffect(() => {
@@ -86,11 +86,11 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
 
   // Construct Tile URL with CARTO API Key or fallback
   const getTileConfig = (L: any) => {
-    const keyParam = cartoApiKey ? `?api_key=${encodeURIComponent(cartoApiKey)}` : '';
+    const keyParam = cartoApiKey ? `?key=${encodeURIComponent(cartoApiKey)}&api_key=${encodeURIComponent(cartoApiKey)}` : '';
 
     if (basemapStyle === 'carto_voyager') {
       return {
-        url: `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png${keyParam}`,
+        url: `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png${keyParam}`,
         options: {
           attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; OpenStreetMap',
           subdomains: 'abcd',
@@ -109,9 +109,19 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
       };
     }
 
-    // Default: CARTO Positron Light (cleanest for election analysis)
+    if (basemapStyle === 'esri') {
+      return {
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+        options: {
+          attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &copy; HERE, DeLorme, MapmyIndia',
+          maxZoom: 16,
+        },
+      };
+    }
+
+    // Default: CARTO Positron (light_all under rastertiles with ?key=)
     return {
-      url: `https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png${keyParam}`,
+      url: `https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png${keyParam}`,
       options: {
         attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; OpenStreetMap',
         subdomains: 'abcd',
@@ -302,6 +312,15 @@ export const RealSpainMap: React.FC<RealSpainMapProps> = ({
               }`}
             >
               CARTO Voyager
+            </button>
+            <button
+              onClick={() => setBasemapStyle('esri')}
+              className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
+                basemapStyle === 'esri' ? 'bg-zinc-900 text-white' : 'text-zinc-600 hover:text-zinc-900'
+              }`}
+              title="Mapa base gris claro sin marca de agua y de alta resolución"
+            >
+              ESRI Gris Claro
             </button>
             <button
               onClick={() => setBasemapStyle('osm')}
