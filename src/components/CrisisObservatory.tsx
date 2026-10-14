@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import { REGIONAL_CRISES } from '@/data/politicalData';
 import { RegionalCrisis } from '@/types/politics';
-import { ShieldAlert, AlertTriangle, Clock, MapPin, Building2, Flame, Droplets, Leaf, HeartPulse, CheckCircle2 } from 'lucide-react';
+import { ShieldAlert, AlertTriangle, Clock, MapPin, Building2, Flame, Droplets, Leaf, HeartPulse, CheckCircle2, Mountain, ExternalLink } from 'lucide-react';
 
 export const CrisisObservatory: React.FC = () => {
   const [selectedCrisis, setSelectedCrisis] = useState<RegionalCrisis>(REGIONAL_CRISES[0]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
 
   const getCrisisIcon = (type: string) => {
     switch (type) {
@@ -18,30 +19,69 @@ export const CrisisObservatory: React.FC = () => {
         return <Leaf className="w-4 h-4 text-emerald-600" />;
       case 'RESIDENCIAS_COVID':
         return <HeartPulse className="w-4 h-4 text-rose-600" />;
+      case 'VOLCAN_GEOLOGICO':
+        return <Mountain className="w-4 h-4 text-amber-700" />;
+      case 'EMERGENCIA_URBANA':
+        return <Building2 className="w-4 h-4 text-purple-600" />;
       default:
         return <AlertTriangle className="w-4 h-4 text-amber-600" />;
     }
   };
 
+  const filteredCrises = REGIONAL_CRISES.filter((c) => {
+    if (selectedCategory === 'ALL') return true;
+    return c.crisisType === selectedCategory;
+  });
+
   return (
     <div className="space-y-6">
       {/* Intro Header */}
       <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-5">
-        <h2 className="text-xl font-bold text-zinc-900 tracking-tight">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+          <ShieldAlert className="w-4 h-4 text-zinc-800" />
+          <span>Protección Civil y Responsabilidad Institucional</span>
+        </div>
+        <h2 className="text-xl font-bold text-zinc-900 tracking-tight mt-1">
           Observatorio de Catástrofes y Gestión de Emergencias Regionales
         </h2>
         <p className="text-sm text-zinc-600 mt-1">
-          En el sistema descentralizado español, las Comunidades Autónomas ostentan las competencias operativas directas de Protección Civil (Nivel 1 y 2), sanidad y extinción de incendios. Este módulo analiza de forma objetiva la cronología de alertas, el marco legal de competencias y la rendición de cuentas presupuestaria en grandes tragedias.
+          En el sistema descentralizado español, las Comunidades Autónomas ostentan las competencias operativas directas de Protección Civil (Niveles 1 y 2), sanidad, montes y extinción de incendios. Este módulo analiza de forma objetiva la cronología de alertas, el marco legal de competencias (Ley 17/2015) y la rendición de cuentas presupuestaria en las <strong>{REGIONAL_CRISES.length} mayores catástrofes y crisis autonómicas</strong>.
         </p>
+
+        {/* Category Filter Pills */}
+        <div className="mt-4 pt-3 border-t border-zinc-200 flex flex-wrap items-center gap-1.5 text-xs">
+          <span className="text-zinc-500 font-semibold mr-1">Filtrar tipo:</span>
+          {[
+            { id: 'ALL', label: `Todas (${REGIONAL_CRISES.length})` },
+            { id: 'DANA_INUNDACION', label: 'Inundaciones y DANA' },
+            { id: 'INCENDIO_FORESTAL', label: 'Incendios Forestales' },
+            { id: 'MEDIOAMBIENTE', label: 'Medioambiente y Aguas' },
+            { id: 'VOLCAN_GEOLOGICO', label: 'Volcanes y Geología' },
+            { id: 'EMERGENCIA_URBANA', label: 'Emergencias Urbanas' },
+            { id: 'RESIDENCIAS_COVID', label: 'Residencias COVID' },
+          ].map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer transition-colors ${
+                selectedCategory === cat.id
+                  ? 'bg-zinc-900 text-white shadow-xs'
+                  : 'bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-100'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Crisis Selector List */}
         <div className="lg:col-span-1 space-y-3">
           <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400 px-1">
-            Catástrofes Analizadas ({REGIONAL_CRISES.length})
+            Catástrofes Registradas ({filteredCrises.length})
           </div>
-          {REGIONAL_CRISES.map((crisis) => {
+          {filteredCrises.map((crisis) => {
             const isSelected = selectedCrisis.id === crisis.id;
             return (
               <button
@@ -76,10 +116,10 @@ export const CrisisObservatory: React.FC = () => {
         {/* Selected Crisis Full Dossier */}
         <div className="lg:col-span-2 bg-white border border-zinc-200 rounded-xl p-6 shadow-xs space-y-6">
           <div className="pb-4 border-b border-zinc-100">
-            <div className="flex items-center gap-2 text-xs text-zinc-500">
+            <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
               <span className="font-bold text-zinc-900">{selectedCrisis.regionName}</span>
               <span>• Fecha: {selectedCrisis.date}</span>
-              <span>• Coste humano y material: {selectedCrisis.humanAndMaterialCost}</span>
+              <span>• Impacto: {selectedCrisis.humanAndMaterialCost}</span>
             </div>
             <h3 className="text-2xl font-bold text-zinc-900 mt-2">{selectedCrisis.title}</h3>
             <div className="mt-2 p-3 bg-zinc-50 rounded-lg border border-zinc-100 text-xs text-zinc-700">

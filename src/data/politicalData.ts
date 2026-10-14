@@ -1,4 +1,4 @@
-import { Party, Bill, CriminalCase, AdministrativeSanction, RegionalCrisis, Region, AlignmentQuestion, PromisometroItem } from '@/types/politics';
+import { Party, Bill, CriminalCase, AdministrativeSanction, RegionalCrisis, Region, AlignmentQuestion, PromisometroItem, MacroIndicator } from '@/types/politics';
 
 export const PARTIES: Record<string, Party> = {
   PSOE: {
@@ -1555,6 +1555,102 @@ export const REGIONAL_CRISES: RegionalCrisis[] = [
     preventionBudgetAnalysis: 'Controversia política permanente: la oposición exige responsabilidades políticas y penales; el Gobierno regional argumenta que los hospitales estaban al borde del colapso absoluto y que el triaje fue estrictamente médico.',
     investigativeCommissionStatus: 'Cientos de querellas de familiares archivadas mayoritariamente por los juzgados de instrucción al considerar que no hubo delito individual, con varios recursos pendientes.',
     summary: 'Uno de los temas más polarizantes de la política madrileña y nacional, objeto de continuos debates parlamentarios sobre la dignidad del cuidado de mayores en emergencias.'
+  },
+  {
+    id: 'volcan-la-palma-2021',
+    title: 'Erupción Volcánica de Cumbre Vieja en La Palma (2021)',
+    regionId: 'canarias',
+    regionName: 'Canarias',
+    governingParty: 'OTROS',
+    governingDetails: 'Gobierno de Canarias presidido por Ángel Víctor Torres (PSOE en coalición "Pacto de las Flores"); Cabildo Insular de La Palma (Mariano Hernández Zapata, PP).',
+    date: '2021-09-19',
+    crisisType: 'VOLCAN_GEOLOGICO',
+    humanAndMaterialCost: '85 días de erupción continua, más de 1.300 viviendas destruidas, 7.000 personas evacuadas, 1.219 hectáreas de coladas lávicas y más de 900 millones de euros en pérdidas patrimoniales y agrícolas.',
+    competencyMatrix: {
+      ccaaResponsibility: 'Dirección del Plan Especial de Protección Civil y Atención de Emergencias por Riesgo Volcánico (PEVOLCA) en Nivel 2 bajo mando autonómico, evacuaciones, albergues y oficinas de atención a damnificados.',
+      centralGovernmentResponsibility: 'Despliegue continuado del Ejército (UME), aportación de ayudas extraordinarias estatales (>500 M€ en el Real Decreto-ley 20/2021), exenciones fiscales del IRPF y seguimiento científico de IGN e IGME-CSIC.'
+    },
+    timelineKeyPoints: [
+      { time: '19 Sep 2021', event: 'Comienza la erupción fisural en Cabeza de Vaca tras una intensa crisis sismotectónica previa.' },
+      { time: '29 Sep 2021', event: 'Las coladas de lava alcanzan el océano en Tazacorte formando deltas lávicos y destruyendo Todoque.' },
+      { time: '13 Dic 2021', event: 'Cesa la emisión de piroclastos y lava tras 85 días y 8 horas de actividad ininterrumpida.' },
+      { time: '25 Dic 2021', event: 'El comité científico del PEVOLCA certifica el fin oficial de la erupción volcánica.' }
+    ],
+    preventionBudgetAnalysis: 'Elogio unánime a la anticipación y evacuación preventiva que evitó víctimas mortales directas por la lava, en contraste con quejas vecinales por la dilación burocrática en la entrega de viviendas definitivas e indemnizaciones aseguradoras.',
+    investigativeCommissionStatus: 'Comisión especial de estudio sobre la reconstrucción de la isla de La Palma en el Parlamento de Canarias.',
+    judicialProceedingsUrl: 'https://www.boe.es',
+    summary: 'Fenómeno geológico extraordinario sin precedentes en Europa en medio siglo; gestión operativa ejemplar en protección de vidas humanas con retos complejos en la reconstrucción socioeconómica.'
+  },
+  {
+    id: 'donana-regadios-2023',
+    title: 'Crisis de Doñana y Proposición de Ley de Regadíos (2022-2023)',
+    regionId: 'andalucia',
+    regionName: 'Andalucía',
+    governingParty: 'PP',
+    governingDetails: 'Junta de Andalucía presidida por Juan Manuel Moreno Bonilla (PP, mayoría absoluta; proposición respaldada inicialmente por Vox).',
+    date: '2023-04-12',
+    crisisType: 'MEDIOAMBIENTE',
+    humanAndMaterialCost: 'Deterioro crítico del acuífero 27 de Doñana por sobreexplotación hídrica y amenaza de sanciones multimillonarias del Tribunal de Justicia de la Unión Europea contra España.',
+    competencyMatrix: {
+      ccaaResponsibility: 'Ordenación territorial y recalificación de suelos agrícolas en la Corona Norte de Doñana (competencia autonómica exclusiva de la Junta de Andalucía).',
+      centralGovernmentResponsibility: 'Gestión y policía del Dominio Público Hidráulico, clausura de pozos ilegales y concesión de caudales a través de la Confederación Hidrográfica del Guadalquivir (MITECO).'
+    },
+    timelineKeyPoints: [
+      { time: 'Junio 2021', event: 'El Tribunal de Justicia de la UE (TJUE) condena a España por el deterioro y extracción ilegal de agua en el Espacio Natural de Doñana.' },
+      { time: 'Abril 2023', event: 'El Parlamento andaluz admite a trámite la proposición de ley de PP y Vox para regularizar regadíos, provocando la oposición frontal de la Comisión Europea y científicos del CSIC.' },
+      { time: 'Noviembre 2023', event: 'Acuerdo bilateral "Pacto por Doñana" entre el MITECO y la Junta de Andalucía: retirada de la proposición a cambio de 1.400 millones de euros en fondos estatales para reconversión ambiental.' }
+    ],
+    preventionBudgetAnalysis: 'Inversión concertada de 1.400 millones de euros (350 M€ directos a agricultores para renaturalización y cultivos de secano) para frenar la presión hídrica sobre el humedal más importante de Europa.',
+    investigativeCommissionStatus: 'Seguimiento riguroso de la Dirección General de Medio Ambiente de la Comisión Europea y debates monográficos en el Parlamento andaluz.',
+    judicialProceedingsUrl: 'https://curia.europa.eu',
+    summary: 'Episodio de máxima tensión política y ecológica entre administraciones con repercusión internacional, resuelto mediante la retirada de la reforma legislativa y compensaciones económicas.'
+  },
+  {
+    id: 'incendio-tenerife-2023',
+    title: 'Gran Incendio Forestal de Tenerife en la Corona Forestal del Teide (2023)',
+    regionId: 'canarias',
+    regionName: 'Canarias',
+    governingParty: 'OTROS',
+    governingDetails: 'Gobierno de Canarias (Fernando Clavijo, Coalición Canaria en pacto con el PP) y Cabildo Insular de Tenerife (Rosa Dávila).',
+    date: '2023-08-15',
+    crisisType: 'INCENDIO_FORESTAL',
+    humanAndMaterialCost: 'Más de 14.800 hectáreas calcinadas en 12 municipios, 12.000 personas evacuadas o confinadas y graves afecciones al Parque Nacional del Teide.',
+    competencyMatrix: {
+      ccaaResponsibility: 'Dirección de la emergencia Nivel 2 a través del CECOES 1-1-2 y operativos forestales insulares (BRIFOR) del Gobierno de Canarias y Cabildo de Tenerife.',
+      centralGovernmentResponsibility: 'Despliegue de hasta 22 aeronaves de extinción del MITECO y Ejército del Aire, y movilización de más de 200 efectivos del BIEM II de la UME.'
+    },
+    timelineKeyPoints: [
+      { time: '15 Agosto 2023', event: 'Inicio del fuego en los montes de Arafo y Candelaria, avanzando por orografía escarpada e inaccesible.' },
+      { time: '18 Agosto 2023', event: 'El fuego desata fenómenos convectivos extremos generando pirocúmulos y saltando líneas de defensa en La Orotava.' },
+      { time: '25 Agosto 2023', event: 'El operativo técnico logra estabilizar el perímetro tras 10 días de combate sin lamentar pérdidas de vidas humanas.' }
+    ],
+    preventionBudgetAnalysis: 'Elogio internacional a la eficacia táctica de la dirección de extinción; debate parlamentario sobre la necesidad de multiplicar los presupuestos de silvicultura preventiva en islas montañosas ante el cambio climático.',
+    investigativeCommissionStatus: 'Atestado del Seprona de la Guardia Civil que confirmó el origen intencionado del incendio.',
+    summary: 'El incendio más complejo en la historia moderna de Canarias, controlado con cero víctimas mortales gracias a la pericia de los mandos técnicos autonómicos y estatales.'
+  },
+  {
+    id: 'incendio-campanar-2024',
+    title: 'Incendio del Complejo Residencial de Campanar en Valencia (2024)',
+    regionId: 'comunitat-valenciana',
+    regionName: 'Comunitat Valenciana',
+    governingParty: 'PP',
+    governingDetails: 'Generalitat Valenciana (Carlos Mazón, PP) y Ayuntamiento de Valencia (María José Catalá, PP).',
+    date: '2024-02-22',
+    crisisType: 'EMERGENCIA_URBANA',
+    humanAndMaterialCost: '10 personas fallecidas, 138 viviendas totalmente calcinadas y más de 450 personas desalojadas en cuestión de minutos debido a la extrema velocidad de propagación por la fachada ventilada.',
+    competencyMatrix: {
+      ccaaResponsibility: 'Activación del Plan Territorial de Emergencias de la Comunitat Valenciana, coordinación asistencial y sanitaria del SESCV, y decreto urgente de realojo y ayudas directas autonómicas.',
+      centralGovernmentResponsibility: 'Despliegue inmediato de la Unidad Militar de Emergencias (UME), inspección de Policía Científica y coordinación de Protección Civil del Ministerio del Interior.'
+    },
+    timelineKeyPoints: [
+      { time: '17:30 h (22 Feb 2024)', event: 'Se detecta humo en un departamento de la planta 8 de un edificio de 14 alturas en el barrio de Campanar.' },
+      { time: '18:15 h', event: 'Las llamas devoran las dos torres residenciales en menos de 45 minutos avivadas por rachas de viento de poniente de más de 60 km/h y paneles de fachada altamente combustibles.' },
+      { time: '23 Feb 2024', event: 'Decreto de 3 días de luto oficial, movilización de 131 viviendas de alquiler municipal y puesta en marcha de ventanilla única de atención integral.' }
+    ],
+    preventionBudgetAnalysis: 'Consenso político para aprobar ayudas directas de hasta 10.000 € por unidad familiar y revisión integral del Código Técnico de la Edificación (CTE) para prohibir revestimientos inflamables en fachadas de altura.',
+    investigativeCommissionStatus: 'Instrucción judicial en el Juzgado de Instrucción nº 9 de Valencia, que archivó la causa penal al confirmar que el origen fue un fallo eléctrico fortuito en el motor de un electrodoméstico.',
+    judicialProceedingsUrl: 'https://www.poderjudicial.es',
+    summary: 'Mayor tragedia urbana en una edificación residencial en la historia reciente de España; respuesta institucional ágil de realojo e impulso de reformas obligatorias en la normativa de edificación.'
   }
 ];
 
@@ -1718,6 +1814,231 @@ export const ALIGNMENT_QUESTIONS: AlignmentQuestion[] = [
         alignment: { PSOE: -1.0, PP: 0.4, VOX: 1.0 }
       }
     ]
+  },
+  {
+    id: 'q7-laboral',
+    topic: 'Jornada Laboral y Mercado de Trabajo',
+    question: '¿Debe reducirse por ley la jornada laboral máxima de 40 a 37,5 horas semanales sin merma de sueldo?',
+    context: 'El Estatuto de los Trabajadores fija 40 horas desde 1983; el Gobierno tramita la rebaja a 37,5 horas frente al rechazo de la patronal CEOE.',
+    options: [
+      {
+        label: 'Sí, es un derecho para conciliar y repartir la productividad que debe imponerse por ley incluso sin aval de la patronal.',
+        explanation: 'Propuesta central del acuerdo de gobierno de coalición PSOE-Sumar.',
+        alignment: { PSOE: 1.0, PP: -0.7, VOX: -0.9 }
+      },
+      {
+        label: 'No por imposición legal estatal; debe acordarse en la negociación colectiva según la realidad de cada sector y productividad de las pymes.',
+        explanation: 'Postura del Partido Popular y de las patronales empresariales.',
+        alignment: { PSOE: -0.8, PP: 1.0, VOX: 0.6 }
+      },
+      {
+        label: 'Rechazo frontal; atenta contra la supervivencia del pequeño comercio y autónomos. La prioridad es rebajar cotizaciones e impuestos al empleo.',
+        explanation: 'Oposición de Vox a la regulación estatal de horarios laborales.',
+        alignment: { PSOE: -1.0, PP: 0.5, VOX: 1.0 }
+      }
+    ]
+  },
+  {
+    id: 'q8-justicia-cgpj',
+    topic: 'Justicia e Independencia Judicial',
+    question: '¿Cómo deben ser elegidos los vocales judiciales del Consejo General del Poder Judicial (CGPJ)?',
+    context: 'El CGPJ estuvo bloqueado durante más de 5 años por la discrepancia sobre el modelo de elección entre las Cortes y la carrera judicial.',
+    options: [
+      {
+        label: 'Mantener la legitimidad parlamentaria (elección por 3/5 del Congreso y Senado) para reflejar la soberanía popular y evitar corporativismo.',
+        explanation: 'Modelo defendido por el PSOE para asegurar el origen democrático de los órganos constitucionales.',
+        alignment: { PSOE: 1.0, PP: -0.7, VOX: -0.8 }
+      },
+      {
+        label: 'Reforma de la LOPJ para que los 12 vocales de procedencia judicial sean elegidos directamente por los propios jueces y magistrados sin intermediación política.',
+        explanation: 'Exigencia histórica del Partido Popular alineada con los estándares de la Comisión Europea.',
+        alignment: { PSOE: -0.8, PP: 1.0, VOX: 0.7 }
+      },
+      {
+        label: 'Elección directa por los jueces de toda la cúpula judicial y supresión de la politización del Tribunal Constitucional y la Fiscalía General del Estado.',
+        explanation: 'Postura de Vox de despolitización drástica y fin de cuotas partidistas.',
+        alignment: { PSOE: -1.0, PP: 0.6, VOX: 1.0 }
+      }
+    ]
+  },
+  {
+    id: 'q9-igualdad-genero',
+    topic: 'Igualdad, Género y Familia',
+    question: '¿Cuál debe ser el enfoque institucional respecto a las leyes de género y violencia machista?',
+    context: 'Vigencia de la Ley Orgánica 1/2004 contra la violencia de género y aprobación de la Ley Trans estatal.',
+    options: [
+      {
+        label: 'Blindar el Ministerio de Igualdad, reforzar los recursos contra el machismo y proteger plenamente la libre autodeterminación de género.',
+        explanation: 'Compromiso progresista y feminista del PSOE.',
+        alignment: { PSOE: 1.0, PP: -0.8, VOX: -1.0 }
+      },
+      {
+        label: 'Mantener la protección a las mujeres víctimas de violencia, corregir los errores penales (como el "Solo sí es sí") y revisar aspectos de la Ley Trans que afectan a menores.',
+        explanation: 'Línea de consenso del PP manteniendo el Pacto de Estado contra la Violencia de Género.',
+        alignment: { PSOE: -0.6, PP: 1.0, VOX: 0.4 }
+      },
+      {
+        label: 'Derogar la Ley de Violencia de Género por vulnerar la presunción de inocencia del hombre, sustituirla por violencia intrafamiliar y cerrar el Ministerio de Igualdad.',
+        explanation: 'Pilar identitario de Vox de rechazo a la ideología de género.',
+        alignment: { PSOE: -1.0, PP: 0.1, VOX: 1.0 }
+      }
+    ]
+  },
+  {
+    id: 'q10-memoria-historica',
+    topic: 'Memoria Democrática y Transición',
+    question: '¿Qué tratamiento institucional debe darse a la memoria de la Guerra Civil y el Franquismo?',
+    context: 'Aprobación de la Ley 20/2022 de Memoria Democrática estatal frente a las Leyes de Concordia autonómicas.',
+    options: [
+      {
+        label: 'Aplicar plenamente la Ley de Memoria Democrática para reparar a las víctimas de la dictadura, exhumar fosas comunes y retirar honores y símbolos franquistas.',
+        explanation: 'Marco de derechos humanos y verdad defendido por el PSOE.',
+        alignment: { PSOE: 1.0, PP: -0.8, VOX: -1.0 }
+      },
+      {
+        label: 'Reivindicar el espíritu de concordia y reconciliación de la Transición de 1978, evitando que las leyes reabran heridas del pasado o se usen con fines de división política.',
+        explanation: 'Defensa del pacto constitucional de 1978 sostenida por el Partido Popular.',
+        alignment: { PSOE: -0.8, PP: 1.0, VOX: 0.5 }
+      },
+      {
+        label: 'Derogación inmediata de todas las leyes de memoria por constituir un intento totalitario de imponer un relato histórico sectario y criminalizar a media España.',
+        explanation: 'Enfoque de Vox impulsando Leyes de Concordia que abarcan la violencia política desde 1931.',
+        alignment: { PSOE: -1.0, PP: 0.5, VOX: 1.0 }
+      }
+    ]
+  },
+  {
+    id: 'q11-defensa-otan',
+    topic: 'Defensa, OTAN y Política Exterior',
+    question: '¿Debe España alcanzar el compromiso del 2% del PIB en gasto militar e implicarse en el apoyo militar a Ucrania?',
+    context: 'Compromiso de la Cumbre de la OTAN de Madrid de alcanzar el 2% de gasto en defensa para 2029 frente a la agresión rusa a Ucrania.',
+    options: [
+      {
+        label: 'Cumplir los compromisos con la OTAN y la UE de forma progresiva, apoyando a Ucrania con material defensivo y ayuda humanitaria sin enviar tropas sobre el terreno.',
+        explanation: 'Política de seguridad atlántica y europea liderada por el PSOE.',
+        alignment: { PSOE: 1.0, PP: 0.7, VOX: 0.3 }
+      },
+      {
+        label: 'Acelerar la inversión militar hasta el 2% del PIB cuanto antes para equipar a las Fuerzas Armadas y blindar el liderazgo de España como socio fiable de la Alianza Atlántica.',
+        explanation: 'Defensa de las Fuerzas Armadas y atlantismo firme del Partido Popular.',
+        alignment: { PSOE: 0.5, PP: 1.0, VOX: 0.6 }
+      },
+      {
+        label: 'Priorizar de forma absoluta la soberanía nacional, protegiendo Ceuta y Melilla bajo el paraguas explícito de la OTAN y protegiendo el Estrecho de Gibraltar.',
+        explanation: 'Enfoque de soberanía nacionalista de Vox condicionado a la defensa del territorio patrio.',
+        alignment: { PSOE: -0.6, PP: 0.6, VOX: 1.0 }
+      }
+    ]
+  },
+  {
+    id: 'q12-educacion-lenguas',
+    topic: 'Educación y Lenguas Oficiales',
+    question: '¿Qué modelo lingüístico y educativo debe regir en las Comunidades Autónomas con lengua cooficial?',
+    context: 'Discrepancia sobre la cuota del 25% de castellano en Cataluña y modelos de libre elección lingüística de las familias.',
+    options: [
+      {
+        label: 'Respetar los modelos de inmersión lingüística autonómicos para proteger las lenguas cooficiales como patrimonio cultural, garantizando la competencia en ambas lenguas.',
+        explanation: 'Modelo educativo plurilingüe defendido por el PSOE y la LOMLOE.',
+        alignment: { PSOE: 1.0, PP: -0.9, VOX: -1.0 }
+      },
+      {
+        label: 'Garantizar por ley el derecho de las familias a que el castellano sea lengua vehicular en un mínimo del 25% del horario lectivo y proteger la libertad de elección de centro concertado.',
+        explanation: 'Defensa del bilingüismo cordial y de la escuela concertada promovida por el PP.',
+        alignment: { PSOE: -0.8, PP: 1.0, VOX: 0.6 }
+      },
+      {
+        label: 'El español debe ser la lengua vehicular principal obligatoria en toda España, con derecho exclusivo a estudiar en castellano y supresión de trabas lingüísticas en oposiciones.',
+        explanation: 'Defensa de la supremacía del español común de Vox.',
+        alignment: { PSOE: -1.0, PP: 0.5, VOX: 1.0 }
+      }
+    ]
+  }
+];
+
+export const MACRO_INDICATORS: MacroIndicator[] = [
+  {
+    id: 'tasa-desempleo',
+    title: 'Tasa de Desempleo (EPA - INE)',
+    category: 'EMPLEO',
+    currentValue2026: '11,2% (Mínimo desde 2008)',
+    comparisonBaseline: '15,3% en 2018 (Media Eurozona: 6,4%)',
+    officialSource: 'Instituto Nacional de Estadística (EPA 2026)',
+    sourceUrl: 'https://www.ine.es',
+    trend: 'MEJORA',
+    contextSummary: 'El desempleo ha descendido de forma ininterrumpida tras la reforma laboral, aunque España continúa liderando la tasa de paro general y juvenil de la Unión Europea.',
+    psoePerspective: 'El Gobierno destaca la creación histórica de empleo indefinido y la reducción sostenida del paro estructural gracias a la reforma laboral y los fondos Next Generation.',
+    ppPerspective: 'El PP denuncia el maquillaje estadístico de los fijos discontinuos inactivos y recuerda que España sigue a la cola de Europa en desempleo juvenil (>25%).',
+    voxPerspective: 'Vox critica la dependencia de contratos públicos precarios, el estrangulamiento fiscal a pymes y autónomos y la pérdida de competitividad industrial.'
+  },
+  {
+    id: 'afiliacion-seguridad-social',
+    title: 'Afiliados a la Seguridad Social',
+    category: 'EMPLEO',
+    currentValue2026: '21.450.000 cotizantes',
+    comparisonBaseline: '18.900.000 en 2018 (+2,5M cotizantes)',
+    officialSource: 'Ministerio de Inclusión, Seguridad Social y Migraciones',
+    sourceUrl: 'https://www.seg-social.es',
+    trend: 'MEJORA',
+    contextSummary: 'Récord histórico absoluto de cotizantes en activo en España, impulsado por el sector servicios, la tecnología y la incorporación de trabajadores extranjeros.',
+    psoePerspective: 'Cifra récord que demuestra la fortaleza del modelo productivo y garantiza la sostenibilidad del sistema público de pensiones.',
+    ppPerspective: 'Argumenta que gran parte del crecimiento se concentra en el empleo público hipertrofiado y que la productividad por hora trabajada sigue estancada.',
+    voxPerspective: 'Advierte de que el aumento de cotizantes extranjeros en sectores de bajo valor añadido no soluciona la quiebra demográfica ni la fuga de talento joven español.'
+  },
+  {
+    id: 'inflacion-ipc',
+    title: 'Inflación Interanual (IPC General)',
+    category: 'PRECIOS',
+    currentValue2026: '2,3% interanual',
+    comparisonBaseline: 'Pico del 10,8% en julio de 2022',
+    officialSource: 'Instituto Nacional de Estadística (IPC 2026)',
+    sourceUrl: 'https://www.ine.es',
+    trend: 'ESTABLE',
+    contextSummary: 'La inflación se ha moderado hacia el objetivo del 2% del BCE tras el shock de la guerra de Ucrania, pero los precios de los alimentos acumulan un alza superior al 30% desde 2021.',
+    psoePerspective: 'Pone en valor que España fue el primer país europeo en moderar la inflación gracias a la excepción ibérica energética y las rebajas del IVA a alimentos básicos.',
+    ppPerspective: 'Señala que los precios no han bajado sino que crecen más lento sobre una base asfixiante para las familias, y exige deflactar el IRPF.',
+    voxPerspective: 'Atribuye la inflación a la sumisión a la Agenda 2030, a las cargas ecológicas sobre los combustibles y a la emisión descontrolada de deuda europea.'
+  },
+  {
+    id: 'deuda-publica-pib',
+    title: 'Deuda Pública sobre el PIB',
+    category: 'ECONOMIA',
+    currentValue2026: '104,2% del PIB (1,62 billones €)',
+    comparisonBaseline: '120,4% en 2020 (Pico COVID) y 98,6% en 2018',
+    officialSource: 'Banco de España y Protocolo de Déficit Excesivo UE',
+    sourceUrl: 'https://www.bde.es',
+    trend: 'ESTABLE',
+    contextSummary: 'El ratio deuda/PIB se reduce paulatinamente por el crecimiento del PIB nominal y la inflación, pero la deuda nominal en euros marca récords históricos continuos.',
+    psoePerspective: 'Defiende la senda de reducción del ratio deuda/PIB cumpliendo las reglas fiscales de Bruselas sin aplicar recortes sociales.',
+    ppPerspective: 'Alerta de una hipoteca insostenible para las próximas generaciones con más de 40.000 millones de euros anuales en intereses de la deuda soberana.',
+    voxPerspective: 'Exige el cierre inmediato del Estado de las Autonomías y entes duplicados para atajar un déficit alimentado por el despilfarro del gasto político.'
+  },
+  {
+    id: 'salario-minimo-smi',
+    title: 'Salario Mínimo Interprofesional (SMI)',
+    category: 'BIENESTAR',
+    currentValue2026: '1.134 €/mes (14 pagas)',
+    comparisonBaseline: '735 €/mes en 2018 (+54,3% de subida)',
+    officialSource: 'Boletín Oficial del Estado (Real Decreto 145/2024)',
+    sourceUrl: 'https://www.boe.es',
+    trend: 'MEJORA',
+    contextSummary: 'Incremento acumulado del 54% en siete años para situar el SMI en el 60% del salario medio neto, conforme a la Carta Social Europea.',
+    psoePerspective: 'Bandera del escudo social: reducción de la brecha salarial de género y dignificación de las rentas más vulnerables sin destruir empleo.',
+    ppPerspective: 'Propone que las subidas se pacten con la patronal CEOE y se acompañen de bonificaciones en cuotas sociales para no expulsar a trabajadores poco cualificados.',
+    voxPerspective: 'Afirma que la subida del SMI ha sido devorada por la inflación y los impuestos, y propone una reducción drástica de las cotizaciones sociales que pagan las empresas.'
+  },
+  {
+    id: 'esfuerzo-vivienda-alquiler',
+    title: 'Esfuerzo Salarial para el Alquiler',
+    category: 'BIENESTAR',
+    currentValue2026: '43% del salario neto medio',
+    comparisonBaseline: '34% en 2018 (Recomendación prudencial: <30%)',
+    officialSource: 'Banco de España e Índice Alquiler INE',
+    sourceUrl: 'https://www.bde.es',
+    trend: 'DETERIORO',
+    contextSummary: 'El mayor problema socioeconómico percibido por los ciudadanos; el coste del alquiler y la escasez de oferta obligan a dedicar más del 40% del sueldo a la vivienda en grandes urbes.',
+    psoePerspective: 'Defiende la aplicación de la Ley de Vivienda con topes al alquiler y movilización de suelo público, acusando a las CCAA del PP de boicotear la ley.',
+    ppPerspective: 'Culpa a la Ley de Vivienda del Gobierno de haber hundido un 30% la oferta de alquiler residencial tradicional y disparado los precios por inseguridad jurídica.',
+    voxPerspective: 'Denuncia que las leyes actuales amparan la okupación y la morosidad y propone desgravaciones totales al arrendador y desahucio inmediato.'
   }
 ];
 

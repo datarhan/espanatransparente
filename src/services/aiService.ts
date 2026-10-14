@@ -1,5 +1,5 @@
-import { BILLS, CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES, PARTIES } from '@/data/politicalData';
-import { AiSearchResult, Bill, CriminalCase, AdministrativeSanction, RegionalCrisis, PartyId } from '@/types/politics';
+import { BILLS, CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES, PARTIES, PROMISES } from '@/data/politicalData';
+import { AiSearchResult, Bill, CriminalCase, AdministrativeSanction, RegionalCrisis, PartyId, PromisometroItem } from '@/types/politics';
 
 /**
  * AI Service integrating Gemma 4 (Neural Document Parsing & Neutrality Auditing)
@@ -17,7 +17,7 @@ const TOPIC_CLUSTERS: Record<string, string[]> = {
   defensa_internacional: ['ucrania', 'militar', 'leopard', 'armas', 'defensa', 'otan', 'seguridad ciudadana', 'ley mordaza', 'moción de censura', 'tamames', 'abascal'],
   corrupcion: ['corrupción', 'gurtel', 'ere', 'koldo', 'caja b', 'malversación', 'cohecho', 'juicio', 'condena', 'bárcenas', 'sobornos', 'púnica', 'lezo', 'nóos', 'amador', 'ayuso', 'mediador', 'berni', 'faffe', 'david', 'sánchez', 'formación', 'disenso', 'filesa', 'taula', 'imelsa', 'rus', 'palma arena', 'brugal', 'emarsa', 'fabra', 'luceño', 'medina', 'cifuentes', 'máster', 'residencias', 'irán', 'cnri', 'mek', 'ortega smith', 'cibeles', 'sobresueldos', 'auditorio', 'pedro antonio', 'baltar', 'ourense', 'enchufismo', 'trama eólica', 'perla negra', 'faycán', 'telde', 'naseiro', 'monasterio', 'visados', 'lofts', 'erial', 'zaplana', 'itv', 'tarjetas black', 'rato', 'blesa', 'acuamed', 'terra mítica', 'fondos reservados', 'barrionuevo', 'vera', 'roldán', 'invercaria'],
   sanciones: ['sanción', 'multa', 'tribunal de cuentas', 'jec', 'junta electoral', 'neutralidad', 'conflicto de intereses', 'isabel rodríguez', 'feijóo', 'donaciones', 'desvío', 'huchas', 'lotería', 'aepd', 'privacidad', 'publicidad redes', 'lona alcalá', 'solidaridad', 'huelga general', 'diputación ourense', 'paridad listas', 'fachada reflexión', 'cantabria neutralidad'],
-  crisis_desastres: ['dana', 'valencia', 'inundación', 'incendio', 'fuego', 'catástrofe', 'emergencia', 'mar menor', 'residencias', 'presas', 'aemet'],
+  crisis_desastres: ['dana', 'valencia', 'inundación', 'incendio', 'fuego', 'catástrofe', 'emergencia', 'mar menor', 'residencias', 'presas', 'aemet', 'palma', 'volcán', 'doñana', 'tenerife', 'campanar'],
   amnistia_cataluna: ['amnistía', 'cataluña', 'indultos', 'separatismo', 'constitucion', 'referéndum', 'procés', 'sedición', 'malversación', 'financiación singular', 'concierto']
 };
 
@@ -49,6 +49,12 @@ export async function searchPolicies(query: string): Promise<AiSearchResult> {
     return words.some(w => w.length > 3 && text.includes(w));
   });
 
+  // Match promises
+  const matchedPromises: PromisometroItem[] = PROMISES.filter(p => {
+    const text = `${p.headline} ${p.topic} ${p.manifestoPromise} ${p.governingReality} ${p.party}`.toLowerCase();
+    return words.some(w => w.length > 3 && text.includes(w));
+  });
+
   // Synthesize neutral AI overview (Gemma 4 architecture)
   let answer = '';
   const sourcesCited: string[] = ['Congreso de los Diputados (Diario de Sesiones)', 'Boletín Oficial del Estado (BOE)'];
@@ -62,7 +68,7 @@ export async function searchPolicies(query: string): Promise<AiSearchResult> {
     answer = `En materia de rendición de cuentas judicial y administrativa, los registros oficiales diferencian de forma taxativa entre sentencias penales firmes del Tribunal Supremo (e.g. Gürtel en el PP o ERE en el PSOE) y fases de instrucción preliminar amparadas por la presunción de inocencia (e.g. Caso Koldo). Asimismo, en el plano administrativo, el Tribunal de Cuentas y la JEC han impuesto sanciones pecuniarias a dirigentes de los tres partidos por vulneración de neutralidad institucional o infracciones contables.`;
   } else if (matchedBills.length > 0) {
     const bill = matchedBills[0];
-    answer = `Respecto a "${bill.shortTitle}", la iniciativa fue aprobada con el voto favorable del PSOE y el rechazo o abstención de PP y Vox. Los impulsores argumentaron "${bill.proArguments.slice(0, 140)}...", mientras que la oposición justificó su voto en contra señalando "${bill.conArguments.slice(0, 140)}...".`;
+    answer = `Respecto a "${bill.shortTitle}", la iniciativa fue votada en las Cortes Generales. Los impulsores argumentaron "${bill.proArguments.slice(0, 140)}...", mientras que la oposición justificó su voto en contra señalando "${bill.conArguments.slice(0, 140)}...".`;
   } else {
     answer = `Analizando las propuestas oficiales registradas de PSOE, PP y Vox para la consulta "${query}": El PSOE prioriza la intervención regulatoria y fortalecimiento de servicios públicos; el PP aboga por incentivos fiscales a clases medias, agilización burocrática e incremento de la oferta privada; y Vox defiende una reducción drástica del gasto institucional y recentralización de competencias del Estado.`;
   }
@@ -73,6 +79,7 @@ export async function searchPolicies(query: string): Promise<AiSearchResult> {
     relatedCases: matchedCases.slice(0, 3),
     relatedSanctions: matchedSanctions.slice(0, 3),
     relatedCrises: matchedCrises.slice(0, 2),
+    relatedPromises: matchedPromises.slice(0, 3),
     sourcesCited
   };
 }

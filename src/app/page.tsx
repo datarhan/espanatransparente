@@ -10,6 +10,7 @@ import { CrisisObservatory } from '@/components/CrisisObservatory';
 import { AiSemanticSearch } from '@/components/AiSemanticSearch';
 import { AlignmentQuiz } from '@/components/AlignmentQuiz';
 import { Promisometro } from '@/components/Promisometro';
+import { MacroIndicators } from '@/components/MacroIndicators';
 import { BILLS, CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES, PROMISES } from '@/data/politicalData';
 import { Landmark, Vote, ShieldAlert, Sparkles, MapPin, Compass, ExternalLink, Target } from 'lucide-react';
 
@@ -109,6 +110,7 @@ export default function Home() {
         {activeTab === 'votaciones' && <VotingTracker />}
         {activeTab === 'judicial' && <JudicialMonitor />}
         {activeTab === 'crisis' && <CrisisObservatory />}
+        {activeTab === 'macro' && <MacroIndicators />}
         {activeTab === 'buscador_ai' && <AiSemanticSearch />}
         {activeTab === 'test' && <AlignmentQuiz />}
       </main>

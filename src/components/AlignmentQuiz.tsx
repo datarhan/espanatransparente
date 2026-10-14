@@ -47,7 +47,7 @@ export const AlignmentQuiz: React.FC = () => {
           Test de Afinidad y Coincidencia Política
         </h2>
         <p className="text-sm text-zinc-600 mt-1">
-          Responde a 6 cuestiones clave de la actualidad política y económica. El sistema calcula matemáticamente tu afinidad objetiva con el registro real de votaciones en el Congreso de los Diputados de <strong>PSOE</strong>, <strong>PP</strong> y <strong>Vox</strong>.
+          Responde a {ALIGNMENT_QUESTIONS.length} cuestiones clave de la actualidad política, económica y territorial. El sistema calcula matemáticamente tu afinidad objetiva con el registro real de votaciones en el Congreso de los Diputados de <strong>PSOE</strong>, <strong>PP</strong> y <strong>Vox</strong>.
         </p>
       </div>
 

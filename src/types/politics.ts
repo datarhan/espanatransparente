@@ -96,7 +96,13 @@ export interface AdministrativeSanction {
   summary: string;
 }
 
-export type CrisisType = 'DANA_INUNDACION' | 'INCENDIO_FORESTAL' | 'MEDIOAMBIENTE' | 'RESIDENCIAS_COVID';
+export type CrisisType = 
+  | 'DANA_INUNDACION' 
+  | 'INCENDIO_FORESTAL' 
+  | 'MEDIOAMBIENTE' 
+  | 'RESIDENCIAS_COVID'
+  | 'VOLCAN_GEOLOGICO'
+  | 'EMERGENCIA_URBANA';
 
 export interface RegionalCrisis {
   id: string;
@@ -161,6 +167,7 @@ export interface AiSearchResult {
   relatedCases: CriminalCase[];
   relatedSanctions: AdministrativeSanction[];
   relatedCrises: RegionalCrisis[];
+  relatedPromises?: PromisometroItem[];
   sourcesCited: string[];
 }
 
@@ -177,5 +184,20 @@ export interface PromisometroItem {
   status: PromiseStatus;
   statusExplanation: string;
   officialVerificationUrl: string;
+}
+
+export interface MacroIndicator {
+  id: string;
+  title: string;
+  category: 'EMPLEO' | 'ECONOMIA' | 'PRECIOS' | 'BIENESTAR';
+  currentValue2026: string;
+  comparisonBaseline: string; // e.g. "vs 2018" or "media UE"
+  officialSource: string;
+  sourceUrl: string;
+  trend: 'MEJORA' | 'ESTABLE' | 'DETERIORO';
+  contextSummary: string;
+  psoePerspective: string;
+  ppPerspective: string;
+  voxPerspective: string;
 }
 

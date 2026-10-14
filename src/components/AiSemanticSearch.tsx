@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { searchPolicies } from '@/services/aiService';
 import { AiSearchResult } from '@/types/politics';
-import { Sparkles, Search, BookOpen, ShieldAlert, Droplets, CheckCircle, ExternalLink, ArrowRight } from 'lucide-react';
+import { Sparkles, Search, BookOpen, ShieldAlert, Droplets, CheckCircle, ExternalLink, ArrowRight, Target } from 'lucide-react';
 
 export const AiSemanticSearch: React.FC = () => {
   const [query, setQuery] = useState<string>('');
@@ -173,6 +173,41 @@ export const AiSemanticSearch: React.FC = () => {
                     <div className="font-bold text-sky-950 text-sm">{r.title}</div>
                     <div className="text-sky-800 font-medium">Gobierno autonómico: {r.governingDetails}</div>
                     <p className="text-zinc-700">{r.summary}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Matched Electoral Promises */}
+          {result.relatedPromises && result.relatedPromises.length > 0 && (
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-1.5">
+                <Target className="w-3.5 h-3.5 text-zinc-600" />
+                Compromisos Electorales Auditados en El Promisómetro
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {result.relatedPromises.map((p) => (
+                  <div key={p.id} className="p-4 bg-zinc-50 rounded-xl border border-zinc-200 text-xs space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded ${
+                        p.party === 'PP' ? 'bg-blue-100 text-blue-800' :
+                        p.party === 'PSOE' ? 'bg-red-100 text-red-800' :
+                        'bg-emerald-100 text-emerald-800'
+                      }`}>
+                        {p.party}
+                      </span>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        p.status === 'CUMPLIDA' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
+                        p.status === 'PARCIAL' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
+                        'bg-rose-100 text-rose-800 border border-rose-300'
+                      }`}>
+                        {p.status}
+                      </span>
+                    </div>
+                    <div className="font-bold text-zinc-900 text-sm">{p.headline}</div>
+                    <div className="text-zinc-600 italic">"{p.manifestoPromise}"</div>
+                    <p className="text-zinc-700 pt-1 border-t border-zinc-200">{p.governingReality}</p>
                   </div>
                 ))}
               </div>

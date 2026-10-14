@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Landmark, ShieldAlert, Vote, MapPin, Sparkles, Compass, Target } from 'lucide-react';
+import { Landmark, ShieldAlert, Vote, MapPin, Sparkles, Compass, Target, BarChart3 } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -16,6 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
     { id: 'votaciones', label: 'Votaciones en Congreso', icon: Vote },
     { id: 'judicial', label: 'Casos y Sanciones', icon: ShieldAlert },
     { id: 'crisis', label: 'Catástrofes Regionales', icon: ShieldAlert },
+    { id: 'macro', label: 'Indicadores Macro', icon: BarChart3 },
     { id: 'buscador_ai', label: 'Buscador AI (Gemma 4)', icon: Sparkles },
     { id: 'test', label: 'Test de Afinidad', icon: Compass },
   ];
