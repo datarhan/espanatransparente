@@ -80,7 +80,7 @@ export interface CriminalCase {
   sentenceYearOrPeriod: string;
 }
 
-export type SanctioningBody = 'TRIBUNAL_DE_CUENTAS' | 'JEC' | 'OFICINA_CONFLICTO_INTERESES';
+export type SanctioningBody = 'TRIBUNAL_DE_CUENTAS' | 'JEC' | 'OFICINA_CONFLICTO_INTERESES' | 'AEPD' | 'CNMC';
 
 export interface AdministrativeSanction {
   id: string;
