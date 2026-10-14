@@ -163,3 +163,19 @@ export interface AiSearchResult {
   relatedCrises: RegionalCrisis[];
   sourcesCited: string[];
 }
+
+export type PromiseStatus = 'CUMPLIDA' | 'PARCIAL' | 'INCUMPLIDA';
+
+export interface PromisometroItem {
+  id: string;
+  party: PartyId;
+  topic: string;
+  headline: string;
+  manifestoPromise: string;
+  manifestoSourceCitation: string;
+  governingReality: string;
+  status: PromiseStatus;
+  statusExplanation: string;
+  officialVerificationUrl: string;
+}
+

@@ -9,7 +9,8 @@ import { JudicialMonitor } from '@/components/JudicialMonitor';
 import { CrisisObservatory } from '@/components/CrisisObservatory';
 import { AiSemanticSearch } from '@/components/AiSemanticSearch';
 import { AlignmentQuiz } from '@/components/AlignmentQuiz';
-import { Landmark, Vote, ShieldAlert, Sparkles, MapPin, Compass, ExternalLink } from 'lucide-react';
+import { Promisometro } from '@/components/Promisometro';
+import { Landmark, Vote, ShieldAlert, Sparkles, MapPin, Compass, ExternalLink, Target } from 'lucide-react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>('mapa');
@@ -101,6 +102,7 @@ export default function Home() {
         {/* Tab Content Rendering */}
         {activeTab === 'mapa' && <TerritorialMap />}
         {activeTab === 'partidos' && <PartyOverviewCards />}
+        {activeTab === 'promisometro' && <Promisometro />}
         {activeTab === 'votaciones' && <VotingTracker />}
         {activeTab === 'judicial' && <JudicialMonitor />}
         {activeTab === 'crisis' && <CrisisObservatory />}

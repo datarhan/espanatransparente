@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { REGIONS } from '@/data/politicalData';
 import { Region } from '@/types/politics';
 import { MapPin, Users, Building2, CheckCircle2 } from 'lucide-react';
+import { SpainVisualMap } from '@/components/SpainVisualMap';
 
 export const TerritorialMap: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<Region>(REGIONS[0]);
@@ -41,6 +42,12 @@ export const TerritorialMap: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Interactive Cartographic Map */}
+      <SpainVisualMap
+        selectedRegion={selectedRegion}
+        onSelectRegion={setSelectedRegion}
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Region selector list */}

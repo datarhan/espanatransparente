@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Landmark, ShieldAlert, Vote, MapPin, Sparkles, Compass } from 'lucide-react';
+import { Landmark, ShieldAlert, Vote, MapPin, Sparkles, Compass, Target } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -12,6 +12,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   const tabs = [
     { id: 'mapa', label: 'Poder Territorial', icon: MapPin },
     { id: 'partidos', label: 'Radiografía de Partidos', icon: Landmark },
+    { id: 'promisometro', label: 'El Promisómetro', icon: Target },
     { id: 'votaciones', label: 'Votaciones en Congreso', icon: Vote },
     { id: 'judicial', label: 'Casos y Sanciones', icon: ShieldAlert },
     { id: 'crisis', label: 'Catástrofes Regionales', icon: ShieldAlert },
