@@ -10,7 +10,7 @@ import { CrisisObservatory } from '@/components/CrisisObservatory';
 import { AiSemanticSearch } from '@/components/AiSemanticSearch';
 import { AlignmentQuiz } from '@/components/AlignmentQuiz';
 import { Promisometro } from '@/components/Promisometro';
-import { BILLS, CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES } from '@/data/politicalData';
+import { BILLS, CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES, PROMISES } from '@/data/politicalData';
 import { Landmark, Vote, ShieldAlert, Sparkles, MapPin, Compass, ExternalLink, Target } from 'lucide-react';
 
 export default function Home() {
@@ -75,14 +75,14 @@ export default function Home() {
 
           <div className="bg-white border border-zinc-200 p-4 rounded-xl shadow-2xs">
             <span className="text-xs text-zinc-500 font-semibold block uppercase tracking-wider">
-              Leyes Decisivas Analizadas
+              Leyes y Compromisos Electorales
             </span>
             <div className="flex items-baseline gap-2 mt-1">
               <span className="text-2xl font-black text-zinc-900">{BILLS.length} Leyes</span>
-              <span className="text-xs text-zinc-500">con votos y argumentos</span>
+              <span className="text-xs text-zinc-500">• {PROMISES.length} promesas</span>
             </div>
             <div className="text-[11px] text-zinc-600 mt-1">
-              Eutanasia, Solo Sí es Sí, Ucrania, SMI, Vivienda
+              Votos de investidura, BOE y programas de gobierno
             </div>
           </div>
 

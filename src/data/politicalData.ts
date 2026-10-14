@@ -1722,7 +1722,9 @@ export const ALIGNMENT_QUESTIONS: AlignmentQuestion[] = [
 ];
 
 export const PROMISES: PromisometroItem[] = [
-  // --- PSOE ---
+  // =========================================================================
+  // --- PSOE (10 compromisos auditados) ---
+  // =========================================================================
   {
     id: 'psoe-smi',
     party: 'PSOE',
@@ -1736,10 +1738,70 @@ export const PROMISES: PromisometroItem[] = [
     officialVerificationUrl: 'https://www.boe.es'
   },
   {
+    id: 'psoe-pensiones-ipc',
+    party: 'PSOE',
+    topic: 'Pensiones y Seguridad Social',
+    headline: 'Blindaje de la revalorización de las pensiones conforme al IPC',
+    manifestoPromise: 'Garantizar por ley el poder adquisitivo de los pensionistas actualizando anualmente las pensiones contributivas y no contributivas con el IPC medio interanual.',
+    manifestoSourceCitation: 'Programa Electoral PSOE 2023, Eje 2 "Garantía de Pensiones y Bienestar", pág. 32',
+    governingReality: 'Cumplido mediante la aprobación y vigencia de la Ley 21/2021 de garantía del poder adquisitivo de las pensiones, aplicándose subidas automáticas anualmente (8,5% en 2023, 3,8% en 2024 y revalorizaciones subsiguientes).',
+    status: 'CUMPLIDA',
+    statusExplanation: 'Compromiso legislativo blindado en el BOE y presupuestado año a año.',
+    officialVerificationUrl: 'https://www.boe.es/eli/es/l/2021/12/28/21'
+  },
+  {
+    id: 'psoe-transporte-bonificado',
+    party: 'PSOE',
+    topic: 'Transporte y Movilidad Sostenible',
+    headline: 'Gratuidad en abonos de Cercanías, Rodalies y descuentos en transporte público',
+    manifestoPromise: 'Consolidar la gratuidad del transporte público recurrente de Cercanías y Media Distancia ferroviaria y avanzar en la gratuidad para jóvenes y menores.',
+    manifestoSourceCitation: 'Programa Electoral PSOE 2023, pág. 125',
+    governingReality: 'Prorrogada anualmente la gratuidad de los abonos recurrentes de Cercanías y Media Distancia de Renfe mediante Reales Decretos-leyes, financiando además el 50% de los abonos de transporte urbano y el plan Verano Joven.',
+    status: 'CUMPLIDA',
+    statusExplanation: 'Compromiso presupuestario ejecutado sin interrupción durante la legislatura.',
+    officialVerificationUrl: 'https://www.boe.es'
+  },
+  {
+    id: 'psoe-vivienda',
+    party: 'PSOE',
+    topic: 'Vivienda y Alquiler',
+    headline: 'Primera Ley Estatal de Vivienda y regulación de zonas tensionadas',
+    manifestoPromise: 'Aprobar la primera Ley Estatal de Vivienda de la democracia para topar alquileres en zonas tensionadas y movilizar vivienda protegida.',
+    manifestoSourceCitation: 'Programa Electoral PSOE 2023, pág. 64',
+    governingReality: 'Aprobada la Ley 12/2023 de Vivienda en mayo de 2023. No obstante, su efectividad real ha dependido de las Comunidades Autónomas, que mayoritariamente no han declarado zonas tensionadas.',
+    status: 'CUMPLIDA',
+    statusExplanation: 'Cumplida en el plano legislativo estatal del BOE; despliegue práctico condicionado por competencias autonómicas.',
+    officialVerificationUrl: 'https://www.boe.es/eli/es/l/2023/05/24/12'
+  },
+  {
+    id: 'psoe-viviendas-publicas',
+    party: 'PSOE',
+    topic: 'Vivienda y Suelo Público',
+    headline: 'Construcción y movilización de 184.000 viviendas públicas y en alquiler asequible',
+    manifestoPromise: 'Crear un parque público de 184.000 viviendas asequibles mediante suelos del Ministerio de Defensa (SEPES), inmuebles de la SAREB y líneas de crédito ICO.',
+    manifestoSourceCitation: 'Compromiso anunciado por Pedro Sánchez en abril de 2023 y Programa Electoral 2023, pág. 68',
+    governingReality: 'Se transfirieron suelos militares a SEPES y se aprobó la línea de avales y préstamos ICO por 4.000 millones de euros, pero la entrega efectiva de viviendas habitables a finales de legislatura ha avanzado muy por debajo del objetivo cuantitativo anunciado.',
+    status: 'PARCIAL',
+    statusExplanation: 'Despliegue normativo y financiero activado, pero con un ritmo de entrega real de viviendas muy rezagado frente a la cifra comprometida.',
+    officialVerificationUrl: 'https://www.lamoncloa.gob.es'
+  },
+  {
+    id: 'psoe-jornada-laboral',
+    party: 'PSOE',
+    topic: 'Laboral y Productividad',
+    headline: 'Reducción por ley de la jornada laboral máxima a 37,5 horas semanales',
+    manifestoPromise: 'Reducir la jornada laboral máxima legal de 40 a 37,5 horas semanales de forma progresiva sin disminución salarial.',
+    manifestoSourceCitation: 'Acuerdo de Gobierno de Coalición PSOE-Sumar (octubre 2023), Eje 1',
+    governingReality: 'El Gobierno negoció con los agentes sociales durante 2024 y redactó el anteproyecto de ley con rechazo de la patronal CEOE. Su aprobación definitiva quedó trabada en el Congreso ante las dudas de grupos de apoyo como Junts y PNV.',
+    status: 'PARCIAL',
+    statusExplanation: 'Iniciativa tramitada por el Ejecutivo pero dependiente de equilibrios parlamentarios complejos en el Congreso.',
+    officialVerificationUrl: 'https://www.congreso.es'
+  },
+  {
     id: 'psoe-amnistia',
     party: 'PSOE',
     topic: 'Justicia y Modelo Territorial',
-    headline: 'No concesión de amnistía a encausados del Procés catalán',
+    headline: 'Compromiso de no conceder amnistía a encausados del Procés catalán',
     manifestoPromise: 'Pedro Sánchez y dirigentes socialistas reiteraron en campaña y previamente que la amnistía no cabía en la Constitución Española y no se aplicaría.',
     manifestoSourceCitation: 'Declaraciones públicas de campaña electoral julio 2023 y comparecencias parlamentarias',
     governingReality: 'Para lograr la mayoría de investidura de 179 escaños, el Grupo Socialista registró y aprobó la Ley Orgánica 1/2024 de amnistía a encausados del independentismo catalán.',
@@ -1748,16 +1810,16 @@ export const PROMISES: PromisometroItem[] = [
     officialVerificationUrl: 'https://www.boe.es/eli/es/lo/2024/06/09/1'
   },
   {
-    id: 'psoe-vivienda',
+    id: 'psoe-financiacion-singular',
     party: 'PSOE',
-    topic: 'Vivienda',
-    headline: 'Ley Estatal de Vivienda y regulación de precios del alquiler',
-    manifestoPromise: 'Aprobar la primera Ley Estatal de Vivienda de la democracia para topar alquileres en zonas tensionadas y movilizar vivienda protegida.',
-    manifestoSourceCitation: 'Programa Electoral PSOE 2023, pág. 64',
-    governingReality: 'Aprobada la Ley 12/2023 de Vivienda en mayo de 2023. No obstante, su efectividad real ha dependido de las Comunidades Autónomas, que mayoritariamente no han declarado zonas tensionadas.',
-    status: 'CUMPLIDA',
-    statusExplanation: 'Cumplida en el plano legislativo estatal del BOE; despliegue práctico condicionado por competencias autonómicas.',
-    officialVerificationUrl: 'https://www.boe.es/eli/es/l/2023/05/24/12'
+    topic: 'Financiación Autonómica',
+    headline: 'Defensa del régimen común y multilateralidad en la financiación territorial',
+    manifestoPromise: 'Reforma del sistema de financiación autonómica bajo los principios de multilateralidad, cohesión e igualdad de todos los españoles sin bilateralidades privilegiadas.',
+    manifestoSourceCitation: 'Programa Electoral PSOE 2023, "Cohesión Territorial", pág. 142',
+    governingReality: 'En agosto de 2024, el PSOE y el PSC pactaron con ERC para investir a Salvador Illa un concierto económico singular para Cataluña, con cesión del 100% de la recaudación tributaria a la Agencia Tributaria de Cataluña.',
+    status: 'INCUMPLIDA',
+    statusExplanation: 'Viraje estratégico respecto al programa electoral para asegurar el gobierno de la Generalitat de Cataluña.',
+    officialVerificationUrl: 'https://www.psoe.es'
   },
   {
     id: 'psoe-ley-mordaza',
@@ -1771,8 +1833,22 @@ export const PROMISES: PromisometroItem[] = [
     statusExplanation: 'Promesa electoral reiterada en dos legislaturas sin materializarse por desacuerdos con sus socios de investidura.',
     officialVerificationUrl: 'https://www.congreso.es'
   },
+  {
+    id: 'psoe-abolicion-prostitucion',
+    party: 'PSOE',
+    topic: 'Igualdad y Derechos',
+    headline: 'Aprobación de una Ley Orgánica de Abolición de la Prostitución',
+    manifestoPromise: 'Aprobar una Ley Integral para la Abolición de la Prostitución que castigue penalmente el proxenetismo en todas sus variantes y la tercería locativa.',
+    manifestoSourceCitation: 'Resolución del 40º Congreso Federal del PSOE y Programa Electoral 2023, pág. 89',
+    governingReality: 'El Grupo Socialista llevó su proposición de ley al Congreso en mayo de 2024, pero fue rechazada al votar en contra Sumar, ERC, Junts, EH Bildu y PNV, evidenciando la fractura sobre el modelo abolicionista en el bloque parlamentario.',
+    status: 'INCUMPLIDA',
+    statusExplanation: 'Compromiso histórico del PSOE que no logró los apoyos necesarios dentro de la mayoría gubernamental.',
+    officialVerificationUrl: 'https://www.congreso.es'
+  },
 
-  // --- PP ---
+  // =========================================================================
+  // --- PP (9 compromisos auditados) ---
+  // =========================================================================
   {
     id: 'pp-sucesiones-patrimonio',
     party: 'PP',
@@ -1786,6 +1862,90 @@ export const PROMISES: PromisometroItem[] = [
     officialVerificationUrl: 'https://www.boe.es'
   },
   {
+    id: 'pp-gratuidad-03',
+    party: 'PP',
+    topic: 'Educación y Conciliación',
+    headline: 'Educación infantil gratuita de 0 a 3 años en toda la red pública y conveniada',
+    manifestoPromise: 'Universalizar la gratuidad de la educación de 0 a 3 años en toda España para facilitar la conciliación laboral y familiar.',
+    manifestoSourceCitation: 'Programa Electoral PP 2023 "Un proyecto para todos", Medida 42, pág. 47',
+    governingReality: 'Implantada con éxito y financiación autonómica en comunidades presididas por el PP: Galicia (pionera), Comunidad de Madrid, Castilla y León, Andalucía y Comunitat Valenciana.',
+    status: 'CUMPLIDA',
+    statusExplanation: 'Ejecución plena en las comunidades autónomas con presidentes del Partido Popular.',
+    officialVerificationUrl: 'https://www.boe.es'
+  },
+  {
+    id: 'pp-energia-nuclear',
+    party: 'PP',
+    topic: 'Energía y Transición Ecológica',
+    headline: 'Frenar el cierre y prolongar la vida útil de las centrales nucleares',
+    manifestoPromise: 'Prorrogar la vida útil de las centrales nucleares operativas en España para garantizar energía base no emisora y abaratar la factura eléctrica.',
+    manifestoSourceCitation: 'Programa Electoral PP 2023, Medida 76, pág. 69',
+    governingReality: 'El PP ha defendido y votado sistemáticamente en Congreso, Senado y Parlamentos autonómicos (Extremadura, Castilla-La Mancha) iniciativas para suspender el calendario de cierre del PNIEC y mantener reactores como Almaraz.',
+    status: 'CUMPLIDA',
+    statusExplanation: 'Disciplina de voto parlamentario y defensa institucional permanente de la prolongación nuclear.',
+    officialVerificationUrl: 'https://www.congreso.es'
+  },
+  {
+    id: 'pp-irpf-deflactacion',
+    party: 'PP',
+    topic: 'Fiscalidad y Rentas Medias',
+    headline: 'Deflactación del IRPF para rentas medias y bajas en los primeros 100 días',
+    manifestoPromise: 'Rebaja inmediata del IRPF para rentas de menos de 40.000 € deflactando la tarifa del impuesto en los primeros 100 días de gobierno.',
+    manifestoSourceCitation: 'Programa Electoral PP 2023, Medida 15, pág. 28',
+    governingReality: 'Al quedar en la oposición en las Cortes Generales, no pudo aplicarse a escala estatal. No obstante, las CCAA gobernadas por el PP aplicaron la deflactación en sus tramos autonómicos del IRPF.',
+    status: 'PARCIAL',
+    statusExplanation: 'Imposibilidad de ejecución en el BOE estatal al ser oposición, pero ejecutada con éxito en el marco autonómico.',
+    officialVerificationUrl: 'https://www.boe.es'
+  },
+  {
+    id: 'pp-cgpj-reforma',
+    party: 'PP',
+    topic: 'Justicia e Independencia Judicial',
+    headline: 'Renovación del CGPJ ligada a que los jueces elijan a los vocales judiciales',
+    manifestoPromise: 'Exigir la reforma inmediata de la Ley Orgánica del Poder Judicial para que los 12 vocales judiciales sean elegidos directamente por la carrera judicial antes de renovar el CGPJ.',
+    manifestoSourceCitation: 'Programa Electoral PP 2023, Medida 8, pág. 19; y Plan de Calidad Institucional',
+    governingReality: 'En junio de 2024, tras 5 años de bloqueo institucional, el PP y el PSOE acordaron en Bruselas renovar simultáneamente el CGPJ con el sistema parlamentario vigente, pactando que el nuevo Consejo elaborase un informe con propuestas de reforma posterior.',
+    status: 'PARCIAL',
+    statusExplanation: 'Se renovó el órgano constitucional sin exigirse la reforma legal previa, aunque se articuló un compromiso de reforma supervisado por la Comisión Europea.',
+    officialVerificationUrl: 'https://www.boe.es/eli/es/lo/2024/08/02/2'
+  },
+  {
+    id: 'pp-reforma-laboral',
+    party: 'PP',
+    topic: 'Laboral y Empresas',
+    headline: 'Derogación de la Reforma Laboral de 2021',
+    manifestoPromise: 'El PP votó frontalmente en contra de la reforma laboral en febrero de 2022 y prometió inicialmente su derogación dentro de "derogar el sanchismo".',
+    manifestoSourceCitation: 'Diario de Sesiones del Congreso (3 febrero 2022) y declaraciones de dirección nacional',
+    governingReality: 'En el programa electoral general de julio de 2023, Feijóo moderó su postura reconociendo que la reforma contaba con el aval de la patronal CEOE y se comprometió a mantener su estructura principal con ajustes.',
+    status: 'PARCIAL',
+    statusExplanation: 'Evolución de un rechazo frontal a una aceptación con matices del marco normativo pactado con empresarios.',
+    officialVerificationUrl: 'https://www.congreso.es'
+  },
+  {
+    id: 'pp-memoria-democratica',
+    party: 'PP',
+    topic: 'Memoria Histórica y Concordias',
+    headline: 'Derogación íntegra de la Ley de Memoria Democrática estatal',
+    manifestoPromise: 'Derogar la Ley 20/2022 de Memoria Democrática estatal por atentar contra el espíritu de reconciliación de la Transición de 1978.',
+    manifestoSourceCitation: 'Programa Electoral PP 2023, Medida 10, pág. 21',
+    governingReality: 'El PP impulsó iniciativas en Congreso y Senado pero no contó con la mayoría necesaria para derogar la ley estatal. En comunidades como Aragón y Comunitat Valenciana promovió "Leyes de Concordia", recurridas ante el Tribunal Constitucional.',
+    status: 'PARCIAL',
+    statusExplanation: 'Voluntad política explícita pero imposibilitada en el plano estatal por la mayoría parlamentaria del bloque de investidura.',
+    officialVerificationUrl: 'https://www.congreso.es'
+  },
+  {
+    id: 'pp-ley-antiokupacion',
+    party: 'PP',
+    topic: 'Seguridad y Vivienda',
+    headline: 'Ley contra la ocupación ilegal con desalojo exprés en 24 horas',
+    manifestoPromise: 'Aprobar una Ley Antiokupación que garantice el desalojo judicial exprés en un plazo de 24 horas y endurezca las penas de usurpación de bienes inmuebles.',
+    manifestoSourceCitation: 'Programa Electoral PP 2023, Medida 102, pág. 88',
+    governingReality: 'El PP aprobó la Proposición de Ley contra la okupación ilegal en el Senado gracias a su mayoría absoluta en febrero de 2024, pero la mayoría del Congreso mantuvo bloqueada su tramitación definitiva en comisión.',
+    status: 'PARCIAL',
+    statusExplanation: 'Aprobada en la Cámara Alta con el texto íntegro prometido, pero paralizada en el Congreso de los Diputados.',
+    officialVerificationUrl: 'https://www.senado.es'
+  },
+  {
     id: 'pp-pactos-vox',
     party: 'PP',
     topic: 'Gobernabilidad y Alianzas',
@@ -1797,20 +1957,10 @@ export const PROMISES: PromisometroItem[] = [
     statusExplanation: 'Giro pragmático poselectoral para acceder a las presidencias autonómicas tras las elecciones de mayo de 2023.',
     officialVerificationUrl: 'https://www.juntaelectoralcentral.es'
   },
-  {
-    id: 'pp-reforma-laboral',
-    party: 'PP',
-    topic: 'Laboral',
-    headline: 'Derogación de la Reforma Laboral de 2021',
-    manifestoPromise: 'El PP votó frontalmente en contra de la reforma laboral en febrero de 2022 y prometió inicialmente su derogación dentro de "derogar el sanchismo".',
-    manifestoSourceCitation: 'Diario de Sesiones del Congreso (3 febrero 2022) y declaraciones de dirección nacional',
-    governingReality: 'En el programa electoral general de julio de 2023, Feijóo moderó su postura reconociendo que la reforma contaba con el aval de la patronal CEOE y se comprometió a mantener su estructura principal con ajustes.',
-    status: 'PARCIAL',
-    statusExplanation: 'Evolución de un rechazo frontal a una aceptación con matices del marco normativo pactado con empresarios.',
-    officialVerificationUrl: 'https://www.congreso.es'
-  },
 
-  // --- VOX ---
+  // =========================================================================
+  // --- VOX (9 compromisos auditados) ---
+  // =========================================================================
   {
     id: 'vox-ruptura-menores',
     party: 'VOX',
@@ -1822,6 +1972,54 @@ export const PROMISES: PromisometroItem[] = [
     status: 'CUMPLIDA',
     statusExplanation: 'Firmeza en su compromiso electoral asumiendo el coste político de abandonar los gobiernos autonómicos.',
     officialVerificationUrl: 'https://www.congreso.es'
+  },
+  {
+    id: 'vox-leyes-concordia',
+    party: 'VOX',
+    topic: 'Memoria Histórica',
+    headline: 'Derogación de leyes autonómicas de memoria democrática',
+    manifestoPromise: 'Derogación de toda la normativa de memoria histórica por considerarla un intento de dividir a los españoles e imponer un relato ideológico unilateral.',
+    manifestoSourceCitation: 'Programa Electoral Vox 2023, medida 78',
+    governingReality: 'En sus pactos de investidura y gobierno con el PP, logró la derogación de las leyes de memoria y la tramitación de las "Leyes de Concordia" en Aragón, Castilla y León y Comunitat Valenciana (objeto de recurso ante el Tribunal Constitucional).',
+    status: 'CUMPLIDA',
+    statusExplanation: 'Compromiso materializado en los boletines oficiales autonómicos durante su periodo de gobierno con el PP.',
+    officialVerificationUrl: 'https://www.boe.es'
+  },
+  {
+    id: 'vox-tasa-basuras',
+    party: 'VOX',
+    topic: 'Impuestos y Fiscalidad Verde',
+    headline: 'Rechazo e impugnación frontal del \'basurazo\' y tasas ecológicas',
+    manifestoPromise: 'Oposición y derogación de cualquier nuevo impuesto ecológico o tasa de residuos impuesta a las familias y pymes por directivas de la Agenda 2030.',
+    manifestoSourceCitation: 'Programa Marco Municipal Vox 2023 y declaraciones institucionales',
+    governingReality: 'En todos los ayuntamientos y diputaciones donde tiene representación, Vox votó en contra de la ordenanza fiscal de residuos obligatoria por la Ley 7/2022 y promovió recursos administrativos y judiciales.',
+    status: 'CUMPLIDA',
+    statusExplanation: 'Cumplimiento disciplinado del mandato de oposición fiscal verde en todas las corporaciones locales.',
+    officialVerificationUrl: 'https://www.boe.es/eli/es/l/2022/04/08/7'
+  },
+  {
+    id: 'vox-igualdad-genero',
+    party: 'VOX',
+    topic: 'Igualdad y Familia',
+    headline: 'Supresión de consejerías de Igualdad y sustitución por áreas de Familia',
+    manifestoPromise: 'Supresión de todos los organismos públicos destinados al feminismo ideológico y derogación de la normativa de género en favor de la violencia intrafamiliar.',
+    manifestoSourceCitation: 'Programa Electoral Vox 2023, Medidas 12 y 14',
+    governingReality: 'En sus pactos de gobierno con el PP, logró la supresión formal de las consejerías exclusivas de Igualdad en Valencia, Castilla y León, Aragón y Extremadura, integrándolas en Bienestar Social o Familia, si bien el marco legal estatal contra la violencia de género siguió plenamente operativo.',
+    status: 'PARCIAL',
+    statusExplanation: 'Cumplido en el organigrama autonómico mientras cogobernó, pero sin capacidad de alterar la legislación penal estatal.',
+    officialVerificationUrl: 'https://www.congreso.es'
+  },
+  {
+    id: 'vox-eutanasia',
+    party: 'VOX',
+    topic: 'Bioética y Sanidad',
+    headline: 'Derogación de la Ley de Eutanasia y freno al suicidio asistido',
+    manifestoPromise: 'Derogación inmediata de la Ley Orgánica de Regulación de la Eutanasia y aprobación de un Plan Nacional de Cuidados Paliativos integrales.',
+    manifestoSourceCitation: 'Programa Electoral Vox 2023, Medida 18',
+    governingReality: 'Vox recurrió la Ley 3/2021 ante el Tribunal Constitucional (que la avaló en sentencia de marzo de 2023) y ha obstaculizado el nombramiento de comisiones de garantía en autonomías, pero la prestación sigue plenamente vigente en el SNS.',
+    status: 'PARCIAL',
+    statusExplanation: 'Oposición frontal judicial y política mantenida sin concesiones, aunque la ley continúa aplicándose en los hospitales.',
+    officialVerificationUrl: 'https://www.tribunalconstitucional.es'
   },
   {
     id: 'vox-televisiones-autonomicas',
@@ -1836,16 +2034,41 @@ export const PROMISES: PromisometroItem[] = [
     officialVerificationUrl: 'https://www.boe.es'
   },
   {
-    id: 'vox-leyes-concordia',
+    id: 'vox-zbe-municipios',
     party: 'VOX',
-    topic: 'Memoria Histórica',
-    headline: 'Derogación de leyes autonómicas de memoria democrática',
-    manifestoPromise: 'Derogación de toda la normativa de memoria histórica por considerarla un intento de dividir a los españoles e imponer un relato ideológico unilateral.',
-    manifestoSourceCitation: 'Programa Electoral Vox 2023, medida 78',
-    governingReality: 'En sus pactos de investidura y gobierno con el PP, logró la derogación de las leyes de memoria y la tramitación de las "Leyes de Concordia" en Aragón, Castilla y León y Comunitat Valenciana (objeto de recurso ante el Tribunal Constitucional).',
-    status: 'CUMPLIDA',
-    statusExplanation: 'Compromiso materializado en los boletines oficiales autonómicos durante su periodo de gobierno con el PP.',
-    officialVerificationUrl: 'https://www.boe.es'
+    topic: 'Movilidad Urbana',
+    headline: 'Eliminación íntegra de las Zonas de Bajas Emisiones (ZBE) en municipios',
+    manifestoPromise: 'Eliminación total de las restricciones al tráfico de las ZBE en todos los municipios gobernados para garantizar la libre circulación de los vehículos.',
+    manifestoSourceCitation: 'Programa Municipal Vox 2023 "Vota en Conciencia", medida 45',
+    governingReality: 'En consistorios donde asumió responsabilidades o apoyó al PP (como Gijón o Valladolid), la justicia contenciosa anuló modificaciones o la obligación comunitaria vinculada a fondos NextGen forzó a mantener o retrasar las zonas restringidas con cambios cosméticos.',
+    status: 'INCUMPLIDA',
+    statusExplanation: 'Compromiso frenado por el marco legal de la Ley de Cambio Climático y resoluciones de los tribunales contenciosos.',
+    officialVerificationUrl: 'https://www.boe.es/eli/es/l/2021/05/20/7'
+  },
+  {
+    id: 'vox-irpf-dos-tramos',
+    party: 'VOX',
+    topic: 'Fiscalidad y Tributos',
+    headline: 'Reforma radical del IRPF con tipo único simplificado al 15% y 25%',
+    manifestoPromise: 'Simplificación radical del IRPF en solo dos tramos: un tipo reducido del 15% para rentas inferiores a 70.000 € y un tipo del 25% para rentas superiores.',
+    manifestoSourceCitation: 'Programa Electoral Vox 2023, Medida 31',
+    governingReality: 'La medida requería gobernar el Estado y una reforma tributaria de más de 30.000 millones de euros de impacto recaudatorio. En las CCAA donde cogobernó no se logró implementar un esquema análogo en la escala autonómica.',
+    status: 'INCUMPLIDA',
+    statusExplanation: 'Propuesta tributaria que no llegó a traducirse en propuestas legislativas viables ni en el plano autonómico.',
+    officialVerificationUrl: 'https://www.congreso.es'
+  },
+  {
+    id: 'vox-bloqueo-naval',
+    party: 'VOX',
+    topic: 'Seguridad y Fronteras',
+    headline: 'Bloqueo naval militar y despliegue del Ejército en Canarias y fronteras',
+    manifestoPromise: 'Despliegue de la Armada Española para establecer un bloqueo naval frente a las costas de África e impedir la salida de pateras e inmigración ilegal.',
+    manifestoSourceCitation: 'Programa Electoral Vox 2023, Medida 2',
+    governingReality: 'Sus mociones en el Congreso solicitando el despliegue de buques de la Armada para interceptar cayucos fueron rechazadas unánimemente por el resto de grupos al contravenir el Convenio de las Naciones Unidas sobre el Derecho del Mar y los tratados internacionales de rescate marítimo.',
+    status: 'INCUMPLIDA',
+    statusExplanation: 'Iniciativa parlamentaria inviable conforme a la legalidad y convenios marítimos internacionales ratificados por España.',
+    officialVerificationUrl: 'https://www.congreso.es'
   }
 ];
+
 
