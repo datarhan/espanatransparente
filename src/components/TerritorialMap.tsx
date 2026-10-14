@@ -3,11 +3,13 @@
 import React, { useState } from 'react';
 import { REGIONS } from '@/data/politicalData';
 import { Region } from '@/types/politics';
-import { MapPin, Users, Building2, CheckCircle2 } from 'lucide-react';
+import { MapPin, Users, Building2, CheckCircle2, Map as MapIcon, LayoutGrid } from 'lucide-react';
 import { SpainVisualMap } from '@/components/SpainVisualMap';
+import { SpainGeoSvg } from '@/components/SpainGeoSvg';
 
 export const TerritorialMap: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<Region>(REGIONS[0]);
+  const [mapViewMode, setMapViewMode] = useState<'GEO' | 'GRID'>('GEO');
 
   // Aggregate stats
   const ppCount = REGIONS.filter(r => r.governingParty === 'PP').length;
@@ -41,13 +43,51 @@ export const TerritorialMap: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* View Mode Toggle */}
+        <div className="mt-4 pt-3 border-t border-zinc-200 flex items-center justify-between">
+          <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+            Formato de visualización del mapa:
+          </span>
+          <div className="inline-flex rounded-lg border border-zinc-200 bg-white p-1">
+            <button
+              onClick={() => setMapViewMode('GEO')}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-colors cursor-pointer ${
+                mapViewMode === 'GEO'
+                  ? 'bg-zinc-900 text-white shadow-xs'
+                  : 'text-zinc-600 hover:text-zinc-900'
+              }`}
+            >
+              <MapIcon className="w-3.5 h-3.5" />
+              <span>Mapa Geográfico Vectorial</span>
+            </button>
+            <button
+              onClick={() => setMapViewMode('GRID')}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-colors cursor-pointer ${
+                mapViewMode === 'GRID'
+                  ? 'bg-zinc-900 text-white shadow-xs'
+                  : 'text-zinc-600 hover:text-zinc-900'
+              }`}
+            >
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Vista Cuadrícula Cartográfica</span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Interactive Cartographic Map */}
-      <SpainVisualMap
-        selectedRegion={selectedRegion}
-        onSelectRegion={setSelectedRegion}
-      />
+      {/* Render selected map format */}
+      {mapViewMode === 'GEO' ? (
+        <SpainGeoSvg
+          selectedRegion={selectedRegion}
+          onSelectRegion={setSelectedRegion}
+        />
+      ) : (
+        <SpainVisualMap
+          selectedRegion={selectedRegion}
+          onSelectRegion={setSelectedRegion}
+        />
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Region selector list */}
