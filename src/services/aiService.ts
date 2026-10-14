@@ -11,11 +11,14 @@ const TOPIC_CLUSTERS: Record<string, string[]> = {
   vivienda: ['alquiler', 'vivienda', 'piso', 'desahucio', 'okupa', 'ocupación', 'inquilino', 'propietario', 'precio'],
   fiscalidad: ['impuestos', 'irpf', 'iva', 'banca', 'energéticas', 'patrimonio', 'recaudación', 'autónomos', 'tributos'],
   pensiones: ['pensiones', 'jubilación', 'ipc', 'seguridad social', 'pensionistas', 'cotización'],
-  laboral: ['trabajo', 'empleo', 'reforma laboral', 'smi', 'salario mínimo', 'contrato', 'temporalidad', 'paro'],
+  laboral: ['trabajo', 'empleo', 'reforma laboral', 'smi', 'salario mínimo', 'contrato', 'temporalidad', 'paro', 'jornada', '37,5', 'reducción jornada', 'horas'],
+  igualdad_derechos: ['eutanasia', 'muerte digna', 'solo sí es sí', 'consentimiento', 'ley trans', 'lgtbi', 'paridad', 'género', 'memoria democrática', 'franquismo'],
+  educacion_sanidad: ['educación', 'lomloe', 'celaá', 'concertada', 'castellano', 'ela', 'dependencia', 'sanidad'],
+  defensa_internacional: ['ucrania', 'militar', 'leopard', 'armas', 'defensa', 'otan', 'seguridad ciudadana', 'ley mordaza', 'moción de censura', 'tamames', 'abascal'],
   corrupcion: ['corrupción', 'gurtel', 'ere', 'koldo', 'caja b', 'malversación', 'cohecho', 'juicio', 'condena', 'bárcenas', 'sobornos', 'púnica', 'lezo', 'nóos', 'amador', 'ayuso', 'mediador', 'berni', 'faffe', 'david', 'sánchez', 'formación', 'disenso', 'filesa', 'taula', 'imelsa', 'rus', 'palma arena', 'brugal', 'emarsa', 'fabra', 'luceño', 'medina', 'cifuentes', 'máster', 'residencias', 'irán', 'cnri', 'mek', 'ortega smith', 'cibeles', 'sobresueldos', 'auditorio', 'pedro antonio', 'baltar', 'ourense', 'enchufismo', 'trama eólica', 'perla negra', 'faycán', 'telde', 'naseiro', 'monasterio', 'visados', 'lofts', 'erial', 'zaplana', 'itv', 'tarjetas black', 'rato', 'blesa', 'acuamed', 'terra mítica', 'fondos reservados', 'barrionuevo', 'vera', 'roldán', 'invercaria'],
   sanciones: ['sanción', 'multa', 'tribunal de cuentas', 'jec', 'junta electoral', 'neutralidad', 'conflicto de intereses', 'isabel rodríguez', 'feijóo', 'donaciones', 'desvío', 'huchas', 'lotería', 'aepd', 'privacidad', 'publicidad redes', 'lona alcalá', 'solidaridad', 'huelga general', 'diputación ourense', 'paridad listas', 'fachada reflexión', 'cantabria neutralidad'],
   crisis_desastres: ['dana', 'valencia', 'inundación', 'incendio', 'fuego', 'catástrofe', 'emergencia', 'mar menor', 'residencias', 'presas', 'aemet'],
-  amnistia_cataluna: ['amnistía', 'cataluña', 'indultos', 'separatismo', 'constitucion', 'referéndum', 'procés']
+  amnistia_cataluna: ['amnistía', 'cataluña', 'indultos', 'separatismo', 'constitucion', 'referéndum', 'procés', 'sedición', 'malversación', 'financiación singular', 'concierto']
 };
 
 export async function searchPolicies(query: string): Promise<AiSearchResult> {

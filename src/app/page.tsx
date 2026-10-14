@@ -10,7 +10,7 @@ import { CrisisObservatory } from '@/components/CrisisObservatory';
 import { AiSemanticSearch } from '@/components/AiSemanticSearch';
 import { AlignmentQuiz } from '@/components/AlignmentQuiz';
 import { Promisometro } from '@/components/Promisometro';
-import { CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES } from '@/data/politicalData';
+import { BILLS, CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES } from '@/data/politicalData';
 import { Landmark, Vote, ShieldAlert, Sparkles, MapPin, Compass, ExternalLink, Target } from 'lucide-react';
 
 export default function Home() {
@@ -78,11 +78,11 @@ export default function Home() {
               Leyes Decisivas Analizadas
             </span>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl font-black text-zinc-900">10 Leyes</span>
+              <span className="text-2xl font-black text-zinc-900">{BILLS.length} Leyes</span>
               <span className="text-xs text-zinc-500">con votos y argumentos</span>
             </div>
             <div className="text-[11px] text-zinc-600 mt-1">
-              Vivienda, Financiación, Amnistía, SMI
+              Eutanasia, Solo Sí es Sí, Ucrania, SMI, Vivienda
             </div>
           </div>
 

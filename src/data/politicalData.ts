@@ -278,6 +278,263 @@ export const BILLS: Bill[] = [
       VOX: 'EN_CONTRA'
     },
     result: 'RECHAZADA'
+  },
+  {
+    id: 'ley-eutanasia-2021',
+    title: 'Ley Orgánica 3/2021, de 24 de marzo, de regulación de la eutanasia',
+    shortTitle: 'Ley de Regulación de la Eutanasia y Muerte Digna',
+    date: '2021-03-18',
+    legislature: 'XIV Legislatura',
+    category: 'SANIDAD_EDUCACION',
+    officialBoeUrl: 'https://www.boe.es/eli/es/lo/2021/03/24/3',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Grupo Parlamentario Socialista (PSOE)',
+    objectiveSummary: 'Reconoce el derecho a la eutanasia y suicidio médicamente asistido para personas mayores de edad con enfermedad grave e incurable o padecimiento crónico e imposibilitante certificado, previa autorización de una Comisión de Garantía y Evaluación.',
+    proArguments: 'Garantiza el derecho inalienable a una muerte digna y la autonomía de la voluntad del paciente frente a sufrimientos físicos o psíquicos intolerables, despenalizando la ayuda médica bajo un estricto protocolo de garantías.',
+    conArguments: 'PP y Vox votaron en contra argumentando que el Estado debe priorizar los cuidados paliativos integrales y la defensa incondicional del derecho a la vida (art. 15 CE), recurriendo la ley ante el Tribunal Constitucional, que la avaló íntegramente en 2023.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'ley-solo-si-es-si-2022',
+    title: 'Ley Orgánica 10/2022 de garantía integral de la libertad sexual',
+    shortTitle: 'Ley del "Solo Sí es Sí" (Texto Original)',
+    date: '2022-08-25',
+    legislature: 'XIV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialBoeUrl: 'https://www.boe.es/eli/es/lo/2022/09/06/10',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Ministerio de Igualdad / Gobierno de España',
+    objectiveSummary: 'Suprimió la distinción tradicional entre abuso y agresión sexual, situando el consentimiento libre y expreso en el centro del tipo penal, y creando recursos asistenciales integrales 24 horas para víctimas de violencia sexual.',
+    proArguments: 'Acaba con la exigencia a la víctima de demostrar violencia o resistencia física para ser considerada agredida, dotando de cobertura psicológica y habitacional inmediata.',
+    conArguments: 'PP y Vox denunciaron deficiencias técnicas graves y alertaron de que la fusión de tipos y bajada de penas mínimas desencadenaría rebajas de condena en aplicación del principio de ley penal más favorable (efecto que provocó más de 1.200 revisiones a la baja y excarcelaciones).',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'reforma-penal-si-es-si-2023',
+    title: 'Ley Orgánica 4/2023 de modificación de la Ley de Garantía de la Libertad Sexual',
+    shortTitle: 'Reforma del Código Penal de la Ley del "Solo Sí es Sí"',
+    date: '2023-04-20',
+    legislature: 'XIV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialBoeUrl: 'https://www.boe.es/eli/es/lo/2023/04/27/4',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Grupo Parlamentario Socialista (apoyada por el PP)',
+    objectiveSummary: 'Reintrodujo un subtipo agravado de agresión sexual si media violencia o intimidación para elevar las horquillas de penas mínimas de prisión y frenar las revisiones a la baja en delitos futuros.',
+    proArguments: 'PSOE y PP unieron sus votos para reparar las consecuencias penales indeseadas de la ley original y devolver la proporcionalidad punitiva a las agresiones sexuales con violencia.',
+    conArguments: 'Vox votó en contra sosteniendo que era un parche insuficiente y exigió la derogación completa de la ley. Unidas Podemos votó en contra de su socio de gobierno alegando que se volvía al calvario probatorio de la resistencia de la víctima.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'A_FAVOR',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'ley-trans-2023',
+    title: 'Ley 4/2023 para la igualdad real y efectiva de las personas trans y garantía de derechos LGTBI',
+    shortTitle: 'Ley Trans y de Derechos LGTBI',
+    date: '2023-02-16',
+    legislature: 'XIV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialBoeUrl: 'https://www.boe.es/eli/es/l/2023/02/28/4',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Ministerio de Igualdad / Gobierno de España',
+    objectiveSummary: 'Reconoce la autodeterminación de género registral a partir de los 16 años sin necesidad de informe médico, psicológico ni hormonación de dos años (desde los 14 con tutela parental), y prohíbe las terapias de conversión.',
+    proArguments: 'Despatologiza la identidad trans siguiendo las directrices de la OMS y blinda derechos civiles fundamentales frente a la discriminación social, laboral y educativa.',
+    conArguments: 'PP y Vox se opusieron afirmando que desprotege a los menores ante decisiones médicas irreversibles, colisiona con los espacios protegidos de las mujeres biológicas y el deporte femenino, y borra la seguridad jurídica del sexo registral.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'derogacion-sedicion-malversacion-2022',
+    title: 'Ley Orgánica 14/2022 de modificación del Código Penal en materia de desórdenes y malversación',
+    shortTitle: 'Derogación de la Sedición y Reforma de la Malversación',
+    date: '2022-12-15',
+    legislature: 'XIV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialBoeUrl: 'https://www.boe.es/eli/es/lo/2022/12/22/14',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Grupos Parlamentarios PSOE y Unidas Podemos',
+    objectiveSummary: 'Suprimió del Código Penal el delito de sedición tipificando en su lugar los desórdenes públicos agravados, y reformó el delito de malversación diferenciando entre desvío con lucro personal y desvío a un fin público distinto.',
+    proArguments: 'El Gobierno defendió la medida para homologar el marco punitivo español a las democracias de la Unión Europea y restablecer la convivencia institucional en Cataluña.',
+    conArguments: 'PP y Vox denunciaron que se trataba de una reforma penal redactada a la medida de los dirigentes del procés para rebajar condenas a cambio de apoyos parlamentarios, desarmando al Estado y rebajando el castigo de la corrupción.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'ley-memoria-democratica-2022',
+    title: 'Ley 20/2022, de 19 de octubre, de Memoria Democrática',
+    shortTitle: 'Ley de Memoria Democrática',
+    date: '2022-07-14',
+    legislature: 'XIV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialBoeUrl: 'https://www.boe.es/eli/es/l/2022/10/19/20',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Ministerio de la Presidencia / Gobierno de España',
+    objectiveSummary: 'Declara la ilegalidad del régimen franquista y la nulidad de las condenas dictadas por tribunales de la dictadura; asume la búsqueda estatal de desaparecidos en fosas comunes y extingue títulos nobiliarios del periodo.',
+    proArguments: 'Cumple los principios internacionales de verdad, justicia, reparación y garantía de no repetición con todas las víctimas de la Guerra Civil y la dictadura franquista.',
+    conArguments: 'PP y Vox votaron en contra calificándola de ley ideológica y revanchista que dinamita el pacto de reconciliación nacional de la Transición de 1978 y pactada con Bildu.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'ley-educacion-lomloe-celaa',
+    title: 'Ley Orgánica 3/2020 de modificación de la Ley Orgánica de Educación (LOMLOE)',
+    shortTitle: 'Ley de Educación (LOMLOE / Ley Celaá)',
+    date: '2020-11-19',
+    legislature: 'XIV Legislatura',
+    category: 'SANIDAD_EDUCACION',
+    officialBoeUrl: 'https://www.boe.es/eli/es/lo/2020/12/29/3',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Ministerio de Educación y Formación Profesional',
+    objectiveSummary: 'Eliminó la mención expresa al castellano como lengua vehicular en la enseñanza delegando su regulación a las CCAA, suprimió el criterio de demanda social en la educación concertada y priorizó la integración escolar inclusiva.',
+    proArguments: 'Moderniza el currículo hacia un modelo competencial, lucha contra la segregación socioeconómica y potencia la inversión y plazas de la escuela pública infantil y obligatoria.',
+    conArguments: 'PP y Vox votaron en contra denunciando que vulnera el derecho constitucional de los padres a elegir centro y lengua educativa (art. 27 CE), castiga la enseñanza concertada y margina al español en las comunidades bilingües.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'mocion-censura-vox-casado-2020',
+    title: 'Moción de Censura contra el Presidente del Gobierno (Candidato: Santiago Abascal)',
+    shortTitle: 'Moción de Censura de Vox (Octubre 2020)',
+    date: '2020-10-22',
+    legislature: 'XIV Legislatura',
+    category: 'DEFENSA_SEGURIDAD',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Grupo Parlamentario Vox',
+    objectiveSummary: 'Moción de censura constitucional del artículo 113 de la CE para destituir a Pedro Sánchez durante la segunda ola de la pandemia del COVID-19 y convocar de inmediato elecciones generales.',
+    proArguments: 'Vox defendió la moción como una exigencia inaplazable ante la nefasta gestión sanitaria, económica y constitucional del Ejecutivo de coalición y sus acuerdos con el nacionalismo.',
+    conArguments: 'El PSOE defendió la legitimidad democrática y el escudo social del Gobierno. El PP (liderado por Pablo Casado) votó frontalmente en contra para rechazar la radicalización y no dividir a la oposición de centro-derecha.',
+    votes: {
+      PSOE: 'EN_CONTRA',
+      PP: 'EN_CONTRA',
+      VOX: 'A_FAVOR'
+    },
+    result: 'RECHAZADA'
+  },
+  {
+    id: 'mocion-censura-vox-tamames-2023',
+    title: 'Moción de Censura contra el Presidente del Gobierno (Candidato: Ramón Tamames)',
+    shortTitle: 'Moción de Censura de Vox (Marzo 2023)',
+    date: '2023-03-22',
+    legislature: 'XIV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Grupo Parlamentario Vox',
+    objectiveSummary: 'Segunda moción de censura presentada por Vox, proponiendo como candidato independiente al economista Ramón Tamames (89 años, firmante histórico de la Constitución) para disolver las Cortes.',
+    proArguments: 'Vox y el candidato Tamames justificaron la moción ante el deterioro institucional, la supresión de la sedición, la rebaja de la malversación y la necesidad de dar la voz urgente a la ciudadanía en las urnas.',
+    conArguments: 'El PSOE descalificó la iniciativa como una opereta parlamentaria que degradaba las instituciones. El PP (bajo la presidencia de Núñez Feijóo) optó por la abstención para distanciarse del Gobierno sin respaldar la estrategia de Vox.',
+    votes: {
+      PSOE: 'EN_CONTRA',
+      PP: 'ABSTENCION',
+      VOX: 'A_FAVOR'
+    },
+    result: 'RECHAZADA'
+  },
+  {
+    id: 'ayuda-militar-seguridad-ucrania',
+    title: 'Acuerdo de Seguridad Bilateral y Autorización de Envío de Material Militar a Ucrania',
+    shortTitle: 'Suministro de Armamento y Carros Leopard a Ucrania',
+    date: '2024-05-28',
+    legislature: 'XV Legislatura',
+    category: 'DEFENSA_SEGURIDAD',
+    officialBoeUrl: 'https://www.boe.es',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Gobierno de España',
+    objectiveSummary: 'Ratificación parlamentaria del compromiso de suministro de armamento defensivo y ofensivo (misiles Patriot, carros de combate Leopard 2A4, munición) y un paquete bilateral de seguridad de 1.000 millones de euros a Ucrania.',
+    proArguments: 'Apoyo unánime de los tres partidos mayoritarios (PSOE, PP y Vox) a la soberanía de una democracia europea atacada por la agresión militar ilegal de la Federación Rusa y a los compromisos de España con la OTAN y la UE.',
+    conArguments: 'La ley fue apoyada por PSOE, PP y Vox. Las discrepancias políticas partieron de los socios parlamentarios de izquierda (Sumar y Podemos), que rechazaron el gasto armamentístico y reclamaron una resolución estrictamente diplomática.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'A_FAVOR',
+      VOX: 'A_FAVOR'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'jornada-laboral-37-horas',
+    title: 'Proposición de Ley de reducción de la jornada laboral máxima legal a 37,5 horas',
+    shortTitle: 'Reducción de la Jornada Laboral a 37,5 Horas sin Bajar Salario',
+    date: '2024-11-20',
+    legislature: 'XV Legislatura',
+    category: 'LABORAL',
+    officialBoeUrl: 'https://www.boe.es',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Ministerio de Trabajo y Economía Social / Gobierno de España',
+    objectiveSummary: 'Reforma del artículo 34 del Estatuto de los Trabajadores para rebajar de 40 a 37,5 horas semanales de promedio la jornada laboral máxima legal sin merma de retribuciones salariales, con registro horario digital obligatorio accesible a la Inspección de Trabajo.',
+    proArguments: 'Moderniza la jornada laboral congelada desde 1983, reparte las ganancias de productividad con los trabajadores y mejora la salud mental y conciliación familiar.',
+    conArguments: 'PP y Vox se opusieron sosteniendo que la reducción obligatoria por ley perjudica a las pequeñas y medianas empresas, a la hostelería y al comercio, eleva costes laborales y debería pactarse exclusivamente en convenios colectivos.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'ley-paridad-2024',
+    title: 'Ley Orgánica 2/2024 de representación paritaria y presencia equilibrada de mujeres y hombres',
+    shortTitle: 'Ley de Paridad en Consejos de Administración y Política',
+    date: '2024-06-27',
+    legislature: 'XV Legislatura',
+    category: 'JUSTICIA_TERRITORIO',
+    officialBoeUrl: 'https://www.boe.es/eli/es/lo/2024/08/01/2',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Gobierno de España',
+    objectiveSummary: 'Exige que ningún sexo tenga una representación inferior al 40% en el Consejo de Ministros, consejos de administración de sociedades cotizadas del Ibex 35, colegios profesionales y listas electorales mediante listas cremallera.',
+    proArguments: 'Rompe barreras estructurales que impiden a las mujeres acceder a los puestos de máxima decisión económica y política, cumpliendo la directiva de la Unión Europea.',
+    conArguments: 'PP y Vox votaron en contra argumentando que impone cuotas ideológicas coactivas que sacrifican el mérito individual, la excelencia y la libertad organizativa de las empresas privadas.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'APROBADA'
+  },
+  {
+    id: 'reforma-ley-seguridad-ciudadana-mordaza',
+    title: 'Proposición de Ley de reforma de la Ley Orgánica de Seguridad Ciudadana (Ley Mordaza)',
+    shortTitle: 'Reforma / Derogación de la "Ley Mordaza" de 2015',
+    date: '2023-03-14',
+    legislature: 'XIV Legislatura',
+    category: 'DEFENSA_SEGURIDAD',
+    officialCongresoUrl: 'https://www.congreso.es',
+    sponsor: 'Grupos Parlamentarios PSOE y Unidas Podemos',
+    objectiveSummary: 'Planteaba suprimir sanciones por manifestaciones no comunicadas pacíficas, eliminar las multas por grabación y difusión de intervenciones policiales y regular el empleo de material antidisturbios lesivo como pelotas de goma.',
+    proArguments: 'El PSOE defendió la iniciativa para devolver el equilibrio entre seguridad y el libre ejercicio de los derechos fundamentales de reunión, expresión y manifestación.',
+    conArguments: 'PP y Vox se opusieron radicalmente al denunciar que dejaba desprotegidas a la Policía Nacional y la Guardia Civil frente a altercados violentos. La reforma decayó porque ERC y Bildu también votaron en contra al considerarla insuficiente por no prohibir las devoluciones en caliente.',
+    votes: {
+      PSOE: 'A_FAVOR',
+      PP: 'EN_CONTRA',
+      VOX: 'EN_CONTRA'
+    },
+    result: 'RECHAZADA'
   }
 ];
 
