@@ -10,6 +10,7 @@ import { CrisisObservatory } from '@/components/CrisisObservatory';
 import { AiSemanticSearch } from '@/components/AiSemanticSearch';
 import { AlignmentQuiz } from '@/components/AlignmentQuiz';
 import { Promisometro } from '@/components/Promisometro';
+import { CRIMINAL_CASES, ADMINISTRATIVE_SANCTIONS, REGIONAL_CRISES } from '@/data/politicalData';
 import { Landmark, Vote, ShieldAlert, Sparkles, MapPin, Compass, ExternalLink, Target } from 'lucide-react';
 
 export default function Home() {
@@ -90,11 +91,13 @@ export default function Home() {
               Rendición Judicial y Alertas
             </span>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl font-black text-rose-700">11 Causas</span>
-              <span className="text-xs text-zinc-500">y 4 emergencias CCAA</span>
+              <span className="text-2xl font-black text-rose-700">
+                {CRIMINAL_CASES.length + ADMINISTRATIVE_SANCTIONS.length} Causas
+              </span>
+              <span className="text-xs text-zinc-500">y {REGIONAL_CRISES.length} emergencias CCAA</span>
             </div>
             <div className="text-[11px] text-zinc-600 mt-1">
-              Sentencias TS, T. Cuentas y cronología DANA
+              {CRIMINAL_CASES.length} penales • {ADMINISTRATIVE_SANCTIONS.length} sanciones TCu/JEC
             </div>
           </div>
         </div>

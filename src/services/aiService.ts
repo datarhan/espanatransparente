@@ -12,8 +12,8 @@ const TOPIC_CLUSTERS: Record<string, string[]> = {
   fiscalidad: ['impuestos', 'irpf', 'iva', 'banca', 'energéticas', 'patrimonio', 'recaudación', 'autónomos', 'tributos'],
   pensiones: ['pensiones', 'jubilación', 'ipc', 'seguridad social', 'pensionistas', 'cotización'],
   laboral: ['trabajo', 'empleo', 'reforma laboral', 'smi', 'salario mínimo', 'contrato', 'temporalidad', 'paro'],
-  corrupcion: ['corrupción', 'gurtel', 'ere', 'koldo', 'caja b', 'malversación', 'cohecho', 'juicio', 'condena', 'bárcenas', 'sobornos'],
-  sanciones: ['sanción', 'multa', 'tribunal de cuentas', 'jec', 'junta electoral', 'neutralidad', 'conflicto de intereses'],
+  corrupcion: ['corrupción', 'gurtel', 'ere', 'koldo', 'caja b', 'malversación', 'cohecho', 'juicio', 'condena', 'bárcenas', 'sobornos', 'púnica', 'lezo', 'nóos', 'amador', 'ayuso', 'mediador', 'berni', 'faffe', 'david', 'sánchez', 'formación', 'disenso', 'filesa'],
+  sanciones: ['sanción', 'multa', 'tribunal de cuentas', 'jec', 'junta electoral', 'neutralidad', 'conflicto de intereses', 'isabel rodríguez', 'feijóo', 'donaciones', 'desvío'],
   crisis_desastres: ['dana', 'valencia', 'inundación', 'incendio', 'fuego', 'catástrofe', 'emergencia', 'mar menor', 'residencias', 'presas', 'aemet'],
   amnistia_cataluna: ['amnistía', 'cataluña', 'indultos', 'separatismo', 'constitucion', 'referéndum', 'procés']
 };
