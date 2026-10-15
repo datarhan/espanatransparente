@@ -19,6 +19,8 @@ import {
   Radio,
   AlertTriangle
 } from 'lucide-react';
+import CongressHemicycle from './CongressHemicycle';
+import PactometriaMatrix from './PactometriaMatrix';
 
 export type VoteDecision = 'AFIRMATIVO' | 'CONTRA' | 'ABSTENCIÓN';
 
@@ -838,8 +840,14 @@ export default function CongresoView() {
 
   return (
     <div className="space-y-6">
-      {/* Historical Scope Banner */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 space-y-4 shadow-xs">
+      {/* 1. Interactive 350-Seat Congress Hemicycle (Stitch Component) */}
+      <CongressHemicycle onSelectLaw={(lawId) => setSelectedLaw(lawId)} />
+
+      {/* 2. Cross-Party Cohesion & Pactometry Matrix (Stitch Component) */}
+      <PactometriaMatrix />
+
+      {/* 3. Historical Scope & 32 Laws Voting Archive */}
+      <div className="civic-card rounded-2xl p-5 sm:p-6 space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-slate-500">
@@ -1214,6 +1222,34 @@ export default function CongresoView() {
                 <span className="text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200">
                   {activeVote.totalAbstain} Abst.
                 </span>
+              </div>
+            </div>
+
+            {/* Proportion Bar with 176 Majority Notch */}
+            <div className="relative pt-2 pb-1">
+              <div className="w-full h-2.5 rounded-full bg-slate-200 overflow-hidden flex shadow-inner">
+                <div
+                  className="bg-emerald-600 h-full transition-all"
+                  style={{ width: `${(activeVote.totalYes / 350) * 100}%` }}
+                  title={`${activeVote.totalYes} Sí`}
+                />
+                <div
+                  className="bg-rose-600 h-full transition-all"
+                  style={{ width: `${(activeVote.totalNo / 350) * 100}%` }}
+                  title={`${activeVote.totalNo} No`}
+                />
+                <div
+                  className="bg-amber-500 h-full transition-all"
+                  style={{ width: `${(activeVote.totalAbstain / 350) * 100}%` }}
+                  title={`${activeVote.totalAbstain} Abst.`}
+                />
+              </div>
+              {/* 176 Majority Notch */}
+              <div
+                className="absolute top-1.5 bottom-0.5 left-[50.28%] -translate-x-1/2 flex flex-col items-center pointer-events-none"
+                title="Mayoría Absoluta (176 escaños)"
+              >
+                <div className="w-0.5 h-full bg-slate-900 shadow-2xs z-10" />
               </div>
             </div>
 

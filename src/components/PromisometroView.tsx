@@ -309,27 +309,27 @@ export default function PromisometroView() {
                 return (
                   <article
                     key={item.id}
-                    className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:border-slate-300 transition-all"
+                    className="civic-card rounded-2xl overflow-hidden space-y-0"
                   >
                     {/* Top Header of Card */}
-                    <div className="p-4 sm:p-5 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-50/50">
+                    <div className="p-4 sm:p-5 border-b border-outline-variant/50 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-surface-container-low/50">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className={`px-2.5 py-0.5 rounded-full text-xs font-black tracking-wider ${theme.badge}`}>
                           {item.party}
                         </span>
-                        <span className={`text-[11px] font-black uppercase px-2 py-0.5 rounded-md border ${
+                        <span className={`text-[11px] font-mono font-bold uppercase px-2 py-0.5 rounded border ${
                           item.bloc === 'DERECHAS'
                             ? 'bg-amber-50 text-amber-900 border-amber-200'
                             : 'bg-rose-50 text-rose-900 border-rose-200'
                         }`}>
                           {item.bloc === 'DERECHAS' ? 'Bloque Derechas' : 'Bloque Izquierda'}
                         </span>
-                        <span className="text-xs font-bold text-slate-600">
+                        <span className="text-xs font-bold text-secondary">
                           • {item.topic}
                         </span>
                       </div>
 
-                      <span className="text-[11px] font-extrabold uppercase tracking-wide text-slate-500 bg-white px-2.5 py-1 rounded-lg border border-slate-200">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wide text-rose-700 bg-rose-50 px-2.5 py-1 rounded-lg border border-rose-200">
                         {item.badgeLabel}
                       </span>
                     </div>
