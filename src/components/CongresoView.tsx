@@ -1048,7 +1048,7 @@ export default function CongresoView() {
           {/* Laws Scrollable Selector List */}
           <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs">
             <div className="p-3.5 bg-slate-50 border-b border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
-              <span>Leyes en Vista ({filteredVotes.length})</span>
+              <span>Archivo de Leyes Votadas ({filteredVotes.length} de {CONGRESO_VOTES.length})</span>
               <span className="text-[10px] text-slate-400">Clic para ver acta</span>
             </div>
 
