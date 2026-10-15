@@ -38,8 +38,8 @@ const KPI_MODULES: {
     id: 'promisometro',
     category: 'Rendición de Cuentas',
     metric: '28',
-    submetric: 'promesas • 23 leyes',
-    detail: 'Auditoría verificada: programas JEC vs BOE',
+    submetric: 'promesas • 31 leyes (12 años)',
+    detail: 'Auditoría verificada: programas JEC vs BOE (2014-2026)',
     cta: 'Explorar El Promisómetro',
   },
   {
