@@ -16,10 +16,19 @@ import {
   Calendar,
   History,
   ShieldCheck,
-  Radio
+  Radio,
+  AlertTriangle
 } from 'lucide-react';
 
 export type VoteDecision = 'AFIRMATIVO' | 'CONTRA' | 'ABSTENCIÓN';
+
+export interface IncongruenceAlert {
+  party: string;
+  headline: string;
+  publicClaim: string;
+  context: string;
+  actualVote: string;
+}
 
 export interface VotingRecord {
   id: string;
@@ -42,6 +51,7 @@ export interface VotingRecord {
   journalUrl: string;
   boeUrl?: string;
   isRecentHighlight?: boolean;
+  incongruenceAlert?: IncongruenceAlert;
 }
 
 const VOTE_BADGE_STYLES: Record<VoteDecision, string> = {
@@ -73,6 +83,13 @@ export const CONGRESO_VOTES: VotingRecord[] = [
     result: 'APROBADA',
     journalUrl: 'https://www.congreso.es/es/busqueda-de-diarios',
     boeUrl: 'https://www.boe.es',
+    incongruenceAlert: {
+      party: 'PP & VOX',
+      headline: 'PP y Vox: Discurso contra la manipulación informativa, pero voto EN CONTRA de hacer pública la publicidad institucional',
+      publicClaim: 'Critican la supuesta compra de voluntades editoriales y exigen neutralidad de los medios frente a la propaganda estatal.',
+      context: 'Debates parlamentarios sobre libertad de prensa y neutralidad de RTVE',
+      actualVote: 'Votaron EN CONTRA de abrir el registro público de la CNMC que obliga a destapar quién financia a los medios con dinero público de CCAA y ayuntamientos.'
+    }
   },
 
   // --- LEYES CLAVE XV LEGISLATURA (2023 - 2026) ---
@@ -96,6 +113,13 @@ export const CONGRESO_VOTES: VotingRecord[] = [
     result: 'APROBADA',
     journalUrl: 'https://www.congreso.es/es/busqueda-de-diarios',
     boeUrl: 'https://www.boe.es/eli/es/lo/2024/06/09/1',
+    incongruenceAlert: {
+      party: 'PSOE',
+      headline: 'PSOE: Sánchez prometió antes de las elecciones que la amnistía era inconstitucional, pero la aprobó con Junts',
+      publicClaim: 'Pedro Sánchez: "El independentismo pedía la amnistía, algo que desde luego este Gobierno no va a aceptar y que no cabe en la Constitución Española."',
+      context: 'Declaraciones públicas en campaña electoral (julio 2023)',
+      actualVote: 'El Grupo Socialista registró y votó A FAVOR de la Ley Orgánica 1/2024 para asegurar los 7 votos imprescindibles de Junts en la investidura.'
+    }
   },
   {
     id: 'cgpj-reforma-2024',
@@ -307,6 +331,13 @@ export const CONGRESO_VOTES: VotingRecord[] = [
     result: 'APROBADA',
     journalUrl: 'https://www.congreso.es/es/busqueda-de-diarios',
     boeUrl: 'https://www.boe.es/eli/es/rdl/2021/12/28/32',
+    incongruenceAlert: {
+      party: 'PP',
+      headline: 'PP: Votó NO tachándola de destructora de empleo y luego Feijóo admitió en campaña que era un buen pacto',
+      publicClaim: 'Prometieron derogar la reforma laboral tachándola de dañina para las empresas; año y medio después Feijóo declaró que era "una buena reforma avalada por la CEOE".',
+      context: 'Diario de Sesiones (feb 2022) frente a declaraciones en Bruselas (jul 2023)',
+      actualVote: 'El PP votó EN CONTRA en bloque en el Congreso (se aprobó por 175 a 174 tras el voto por error de Alberto Casero).'
+    }
   },
   {
     id: 'pensiones-ipc-2021',
@@ -318,16 +349,23 @@ export const CONGRESO_VOTES: VotingRecord[] = [
     summary: 'Derogó el factor de sostenibilidad de 2013 y consagró por ley la actualización obligatoria anual de las pensiones contributivas según el IPC medio de inflación.',
     proArguments: 'Protege a más de 9 millones de pensionistas de la pérdida de poder adquisitivo por alzas de precios, cumpliendo el mandato del Pacto de Toledo.',
     conArguments: 'PP y Vox alertaron sobre el riesgo actuarial de déficit estructural en la Seguridad Social al concentrarse las jubilaciones de la generación del baby-boom.',
-    ppVote: 'AFIRMATIVO',
+    ppVote: 'CONTRA',
     psoeVote: 'AFIRMATIVO',
     voxVote: 'CONTRA',
-    otrosVoteSummary: 'Unidas Podemos, ERC, Bildu, PNV, Cs, Compromís, Más País: AFIRMATIVO',
-    totalYes: 315,
-    totalNo: 33,
-    totalAbstain: 1,
+    otrosVoteSummary: 'Unidas Podemos, ERC, Bildu, PNV, Más País, Compromís: AFIRMATIVO (176) • Cs: ABSTENCIÓN (6)',
+    totalYes: 176,
+    totalNo: 148,
+    totalAbstain: 6,
     result: 'APROBADA',
     journalUrl: 'https://www.congreso.es/es/busqueda-de-diarios',
     boeUrl: 'https://www.boe.es/eli/es/l/2021/12/28/21',
+    incongruenceAlert: {
+      party: 'PP',
+      headline: 'El PP afirma que siempre apoyó subir las pensiones con el IPC, pero votó EN CONTRA en el Congreso',
+      publicClaim: 'Alberto Núñez Feijóo afirmó en televisión: "El PP siempre ha revalorizado las pensiones conforme al IPC... es absolutamente falso que hayamos votado en contra".',
+      context: 'Entrevista en directo en TVE (julio 2023)',
+      actualVote: 'El Grupo Popular emitió 88 votos en contra (148 votos NO en total junto a Vox) para rechazar la Ley 21/2021 que blindó la revalorización con el IPC.'
+    }
   },
   {
     id: 'ingreso-minimo-vital-2020',
@@ -391,6 +429,13 @@ export const CONGRESO_VOTES: VotingRecord[] = [
     result: 'APROBADA',
     journalUrl: 'https://www.congreso.es/es/busqueda-de-diarios',
     boeUrl: 'https://www.boe.es/eli/es/l/2022/12/27/38',
+    incongruenceAlert: {
+      party: 'PP',
+      headline: 'PP: Discurso de aliviar a las familias asfixiadas por las hipotecas, pero voto EN CONTRA de gravar beneficios récord a la banca',
+      publicClaim: 'El PP denuncia la asfixia de las clases medias por la subida de los tipos de interés y los recibos de la luz.',
+      context: 'Sesiones de control al Gobierno en el Congreso (2022)',
+      actualVote: 'El Grupo Popular votó en contra de la Ley 38/2022 que fijó un gravamen temporal sobre los beneficios extraordinarios de la banca y eléctricas.'
+    }
   },
   {
     id: 'cambio-climatico-2021',
@@ -619,6 +664,13 @@ export const CONGRESO_VOTES: VotingRecord[] = [
     totalAbstain: 0,
     result: 'RECHAZADA',
     journalUrl: 'https://www.congreso.es/es/busqueda-de-diarios',
+    incongruenceAlert: {
+      party: 'PSOE',
+      headline: 'PSOE: Prometió derogar la Ley Mordaza en sus programas de 2019 y 2023, pero decayó tras 6 años de gobierno',
+      publicClaim: 'Compromiso electoral solemne de derogar los artículos lesivos de la Ley 4/2015 del PP para despenalizar la protesta pacífica.',
+      context: 'Programas electorales generales 2019 y 2023',
+      actualVote: 'La reforma legal decayó en marzo de 2023 por la negativa del PSOE a prohibir las pelotas de goma y devoluciones en frontera, votando en contra ERC y Bildu.'
+    }
   },
 
   // --- LEYES HISTÓRICAS DETERMINANTES (2014 - 2019: X y XII LEGISLATURA) ---
@@ -730,7 +782,7 @@ export const CONGRESO_VOTES: VotingRecord[] = [
 export default function CongresoView() {
   const [selectedLaw, setSelectedLaw] = useState<string>('transparencia-medios-emfa-2024');
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [filterType, setFilterType] = useState<'ALL' | 'CONSENSO' | 'POLARIZADA' | 'RECHAZADA'>('ALL');
+  const [filterType, setFilterType] = useState<'ALL' | 'CONSENSO' | 'POLARIZADA' | 'RECHAZADA' | 'INCONGRUENCIA'>('ALL');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedLegislature, setSelectedLegislature] = useState<string>('ALL');
 
@@ -758,6 +810,8 @@ export default function CongresoView() {
                     (v.ppVote === 'AFIRMATIVO' && v.psoeVote === 'CONTRA');
     } else if (filterType === 'RECHAZADA') {
       matchesType = v.result === 'RECHAZADA';
+    } else if (filterType === 'INCONGRUENCIA') {
+      matchesType = Boolean(v.incongruenceAlert);
     }
 
     return matchesSearch && matchesCategory && matchesLegislature && matchesType;
@@ -779,6 +833,7 @@ export default function CongresoView() {
     consenso: CONGRESO_VOTES.filter(v => v.ppVote === 'AFIRMATIVO' && v.psoeVote === 'AFIRMATIVO').length,
     polarizadas: CONGRESO_VOTES.filter(v => (v.ppVote === 'CONTRA' && v.psoeVote === 'AFIRMATIVO') || (v.ppVote === 'AFIRMATIVO' && v.psoeVote === 'CONTRA')).length,
     rechazadas: CONGRESO_VOTES.filter(v => v.result === 'RECHAZADA').length,
+    incongruencias: CONGRESO_VOTES.filter(v => Boolean(v.incongruenceAlert)).length,
   };
 
   return (
@@ -901,11 +956,22 @@ export default function CongresoView() {
               onClick={() => setFilterType('RECHAZADA')}
               className={`px-3 py-1 rounded-lg border transition-all cursor-pointer ${
                 filterType === 'RECHAZADA'
-                  ? 'bg-amber-600 text-white border-amber-600 shadow-xs'
-                  : 'bg-white text-amber-700 border-amber-200 hover:bg-amber-50'
+                  ? 'bg-slate-700 text-white border-slate-700 shadow-xs'
+                  : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
               }`}
             >
               Rechazadas ({stats.rechazadas})
+            </button>
+            <button
+              onClick={() => setFilterType('INCONGRUENCIA')}
+              className={`px-3 py-1 rounded-lg border transition-all cursor-pointer flex items-center gap-1.5 ${
+                filterType === 'INCONGRUENCIA'
+                  ? 'bg-amber-500 text-slate-950 border-amber-600 shadow-xs font-black'
+                  : 'bg-amber-50 text-amber-900 border-amber-200 hover:bg-amber-100'
+              }`}
+            >
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
+              <span>Incongruencias con Discurso ({stats.incongruencias})</span>
             </button>
           </div>
 
@@ -1020,6 +1086,15 @@ export default function CongresoView() {
                               Novedad 2024
                             </span>
                           )}
+                          {v.incongruenceAlert && (
+                            <span className={`text-[9px] font-black uppercase px-1.5 py-0.5 rounded border flex items-center gap-1 ${
+                              isSelected
+                                ? 'bg-amber-400 text-slate-950 border-amber-300'
+                                : 'bg-amber-100 text-amber-900 border-amber-300'
+                            }`}>
+                              <AlertTriangle className="w-2.5 h-2.5 text-amber-800" /> Incongruencia
+                            </span>
+                          )}
                         </div>
                         <span className={`text-[10px] font-medium ${isSelected ? 'text-slate-400' : 'text-slate-400'}`}>
                           {v.legislature}
@@ -1082,6 +1157,48 @@ export default function CongresoView() {
               Título oficial: {activeVote.officialTitle}
             </p>
           </div>
+
+          {/* Incongruence with Political Discourse Callout */}
+          {activeVote.incongruenceAlert && (
+            <div className="bg-amber-50/90 border border-amber-300 rounded-xl p-4 text-xs space-y-2.5 shadow-2xs">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <div className="flex items-center gap-1.5 font-black text-amber-950 text-xs uppercase tracking-wide">
+                  <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Contradicción con el Discurso Político Público ({activeVote.incongruenceAlert.party})</span>
+                </div>
+                <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-200">
+                  Acta oficial del Congreso vs. Declaraciones
+                </span>
+              </div>
+              
+              <div className="font-black text-slate-900 text-sm leading-snug">
+                {activeVote.incongruenceAlert.headline}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-[11px]">
+                <div className="bg-white p-3 rounded-lg border border-amber-200 space-y-1">
+                  <span className="text-slate-500 font-bold block uppercase text-[10px]">
+                    1. Lo que dijeron en campaña / medios:
+                  </span>
+                  <blockquote className="italic font-serif font-medium text-slate-900">
+                    &quot;{activeVote.incongruenceAlert.publicClaim}&quot;
+                  </blockquote>
+                  <div className="text-[10px] text-slate-500 font-sans">
+                    Contexto: {activeVote.incongruenceAlert.context}
+                  </div>
+                </div>
+
+                <div className="bg-white p-3 rounded-lg border border-amber-200 space-y-1">
+                  <span className="text-amber-900 font-bold block uppercase text-[10px]">
+                    2. Votación oficial en el Pleno:
+                  </span>
+                  <p className="font-semibold text-slate-900">
+                    {activeVote.incongruenceAlert.actualVote}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Official Voting Result Breakdown */}
           <div className="bg-slate-50 rounded-xl p-4 border border-slate-200/80 space-y-2">
